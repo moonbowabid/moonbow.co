@@ -1,0 +1,141 @@
+# Copyright (C) 2026 GoDaddy
+# This file is distributed under the same license as the WordPress Site Designer MU-Plugins plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress Site Designer MU-Plugins\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/plugin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-03-17T14:36:53+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: wp-site-designer-mu-plugins\n"
+
+#. Plugin Name of the plugin
+#: wp-site-designer-mu-plugins.php
+msgid "WordPress Site Designer MU-Plugins"
+msgstr "MU-Plugin Site Designer WordPress"
+
+#. Description of the plugin
+#: wp-site-designer-mu-plugins.php
+msgid "MU-Plugins for WordPress Site Designer integration"
+msgstr "MU-Plugin untuk integrasi Site Designer WordPress"
+
+#. Author of the plugin
+#: wp-site-designer-mu-plugins.php
+msgid "GoDaddy"
+msgstr "GoDaddy"
+
+#. translators: %s: plugin or theme name
+#. translators: %s: theme name
+#: includes/compat/class-compatibility-modal.php:198
+#: includes/compat/class-compatibility-modal.php:200
+#, php-format
+msgid "Activating %s will limit Airo features"
+msgstr "Pengaktifan %s akan membatasi fitur Airo"
+
+#: includes/compat/class-compatibility-modal.php:201
+msgid "Certain plugins limit what Airo for WordPress can do for your site. To keep all of Airo's design capabilities, cancel this activation."
+msgstr "Beberapa plugin dapat membatasi kemampuan Airo untuk WordPress di situs Anda. Agar tetap bisa menggunakan kemampuan desain dari Airo, batalkan pengaktifan ini."
+
+#: includes/compat/class-compatibility-modal.php:202
+msgid "Certain themes limit what Airo for WordPress can do for your site. To keep all of Airo's design capabilities, cancel this activation."
+msgstr "Beberapa tema dapat membatasi kemampuan Airo untuk WordPress di situs Anda. Agar tetap bisa menggunakan kemampuan desain dari Airo, batalkan pengaktifan ini."
+
+#: includes/compat/class-compatibility-modal.php:203
+msgid "This plugin is under review. It may or may not cause issues with Airo."
+msgstr "Plugin ini sedang ditinjau. Hal ini bisa saja menimbulkan masalah pada Airo."
+
+#: includes/compat/class-compatibility-modal.php:204
+msgid "Continue Anyway"
+msgstr "Tetap Lanjutkan"
+
+#: includes/compat/class-compatibility-modal.php:205
+msgid "Cancel Activation"
+msgstr "Batalkan Aktivasi"
+
+#: includes/compat/class-compatibility-modal.php:206
+msgid "Don't show plugin warnings again"
+msgstr "Jangan tampilkan peringatan plugin lagi"
+
+#: includes/compat/class-compatibility-modal.php:207
+msgid "Don't show theme warnings again"
+msgstr "Jangan tampilkan peringatan tema lagi"
+
+#. translators: %s: plugin name
+#: includes/compat/class-compatibility-notices.php:127
+#: includes/compat/class-compatibility-notices.php:274
+#, php-format
+msgid "Some Airo for WordPress features are now limited, deactivate %s to restore full functionality."
+msgstr "Beberapa fitur Airo untuk WordPress kini dibatasi, nonaktifkan %s agar fitur kembali berfungsi sepenuhnya."
+
+#. translators: %s: plugin name
+#: includes/compat/class-compatibility-notices.php:143
+#, php-format
+msgid "Deactivate %s"
+msgstr "Nonaktifkan %s"
+
+#. translators: %s: recommended theme name
+#: includes/compat/class-compatibility-notices.php:172
+#: includes/compat/class-compatibility-notices.php:290
+#, php-format
+msgid "Some Airo for WordPress features are now limited, switch to %s to restore full functionality."
+msgstr "Beberapa fitur Airo untuk WordPress kini dibatasi, beralih ke %s agar fitur kembali berfungsi sepenuhnya."
+
+#. translators: %s: recommended theme name
+#: includes/compat/class-compatibility-notices.php:186
+#, php-format
+msgid "Switch to %s"
+msgstr "Beralih ke %s"
+
+#: includes/compat/class-compatibility-notices.php:218
+msgid "Deactivating..."
+msgstr "Menonaktifkan..."
+
+#: includes/compat/class-compatibility-notices.php:219
+msgid "Switching..."
+msgstr "Mengalihkan..."
+
+#: includes/compat/class-compatibility-notices.php:220
+msgid "Error - Try Again"
+msgstr "Kesalahan - Coba Lagi"
+
+#: includes/compat/class-theme-compatibility.php:304
+msgid "Incompatible Theme - Airo for WordPress features are limited"
+msgstr "Tema Tidak Kompatibel - Fitur Airo untuk WordPress dibatasi"
+
+#: includes/extensions/class-safari-storage-access.php:169
+msgid "Loading..."
+msgstr "Memuat..."
+
+#: includes/extensions/class-safari-storage-access.php:228
+#: includes/extensions/class-safari-storage-access.php:352
+msgid "Allow Safari to show your site"
+msgstr "Izinkan Safari untuk menampilkan situs Anda"
+
+#: includes/extensions/class-safari-storage-access.php:353
+msgid "When you click on the button below, Safari will ask for permission. Tap \"Allow\" to view your WordPress site."
+msgstr "Saat Anda menekan tombol di bawah, Safari akan meminta persetujuan Anda. Ketuk \"Izinkan\" untuk melihat situs WordPress Anda."
+
+#: includes/extensions/class-safari-storage-access.php:356
+msgid "Step 2/2"
+msgstr "Langkah 2/2"
+
+#: includes/extensions/class-safari-storage-access.php:358
+msgid "Allow in Safari"
+msgstr "Izinkan di Safari"
+
+#: includes/extensions/class-safari-storage-access.php:369
+msgid "Allowing..."
+msgstr "Mengizinkan..."
+
+#: includes/utils/class-request-validator.php:510
+msgid "Empty Origin"
+msgstr "Origin Kosong"
+
+#: includes/utils/class-request-validator.php:520
+msgid "Invalid Origin Format"
+msgstr "Format Origin Tidak Valid"

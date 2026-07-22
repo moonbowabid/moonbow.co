@@ -1,0 +1,117 @@
+.faq-block {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+.faq-block .faq-block__heading {
+    font-size: 41px;
+    line-height: 135%;
+    text-align: left;
+    margin-bottom: 50px;
+    padding-top: 60px;
+    color: var(--primary-color);
+}
+
+.faq-block .faq-block__accordion .faq-block__item {
+    margin-bottom: 10px;
+}
+
+.faq-block .faq-block__accordion .faq-block__item .faq-block__question {
+    border-radius: 0;
+    color: var(--primary-color);
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    font-family: var(--font-archivo) !important;
+    font-weight: var(--fw-semibold) !important;
+    font-size: 21px;
+    line-height: 135%;
+    padding: 0;
+    min-height: 68px;
+    border-style: solid;
+    border-width: 02px 10px 02px 0px;
+    border-color: var(--primary-color);
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 25px;
+    gap: 20px;
+    white-space: normal;
+    letter-spacing: 1%;
+}
+
+.faq-block .faq-block__accordion .faq-block__item .faq-block__question:hover {
+    background-color: transparent;
+}
+
+
+.faq-block .faq-block__accordion .faq-block__item .faq-block__answer p {
+    font-size: 19px;
+    color: #222222;
+    padding: 30px 0 36px 0;
+}
+
+
+
+.accordion-item-title-icon {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+
+
+}
+
+.accordion-item-title-icon span {
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.accordion-item-title-icon span svg {
+    stroke-width: 3px;
+    width: 28px !important;
+    height: 28px !important;
+}
+
+
+/* default: show plus */
+.accordion-close-icon {
+    display: none;
+}
+
+/* when open */
+.faq-block__question[aria-expanded="true"] .accordion-open-icon {
+    display: none;
+}
+
+.faq-block__question[aria-expanded="true"] .accordion-close-icon {
+    display: flex;
+}
+
+.faq-block__answer {
+    overflow: hidden;
+    height: 0;
+    transition: height 350ms ease;
+}
+
+
+@media (max-width:768px) {
+    .faq-block .faq-block__accordion .faq-block__item .faq-block__question {
+        white-space: normal;
+        padding: 10px 20px 10px 0;
+        min-height: max-content;
+        font-size: 19px;
+
+    }
+
+    .faq-block .faq-block__accordion .faq-block__item .faq-block__answer p {
+        font-size: 16px;
+        color: #222222;
+        padding: 20px 0 25px 0;
+    }
+}

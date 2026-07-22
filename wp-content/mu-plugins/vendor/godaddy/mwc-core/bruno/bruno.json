@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "mwc-core",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

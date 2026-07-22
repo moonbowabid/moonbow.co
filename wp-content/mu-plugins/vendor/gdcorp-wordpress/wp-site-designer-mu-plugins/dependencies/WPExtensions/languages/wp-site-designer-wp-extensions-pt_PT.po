@@ -1,0 +1,58 @@
+# Copyright (C) 2026 GoDaddy
+# This file is distributed under the same license as the Site Designer WP Extensions package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Site Designer WP Extensions\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/plugin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-04-30T15:00:00+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Domain: wp-site-designer-wp-extensions\n"
+
+#: includes/extensions/class-draft-mode.php:150
+msgid "Airo Draft"
+msgstr "Rascunho Airo"
+
+#. translators: %s is the original page title.
+#: includes/extensions/class-draft-mode.php:182
+#, php-format
+msgid "Airo draft of: %s"
+msgstr "Rascunho Airo de: %s"
+
+#: includes/extensions/class-draft-mode.php:186
+msgid "Draft Version"
+msgstr "Versão de rascunho"
+
+#. translators: %s is the date the Airo draft was created.
+#: includes/extensions/class-draft-mode.php:202
+#, php-format
+msgid "Airo draft created: %s"
+msgstr "Rascunho Airo criado: %s"
+
+#: includes/extensions/class-draft-mode.php:206
+msgid "Has Draft"
+msgstr "Tem rascunho"
+
+#: includes/extensions/class-draft-mode.php:116
+msgid "The original page no longer exists."
+msgstr "A página original já não existe."
+
+#: includes/extensions/class-draft-mode.php:128
+msgid "The original page already has an active draft."
+msgstr "A página original já tem um rascunho ativo."
+
+#: includes/extensions/class-draft-mode.php:140
+msgid "Failed to restore the draft from trash."
+msgstr "Não foi possível recuperar o rascunho do lixo."
+
+#: includes/extensions/class-draft-mode.php:162
+msgid "Failed to force the restored draft back to draft status."
+msgstr "Não foi possível repor o estado de rascunho ao rascunho recuperado."
+
+#: includes/extensions/class-draft-mode.php:177
+msgid "The draft was restored from trash but could not be re-linked to its original page."
+msgstr "O rascunho foi recuperado do lixo, mas não pôde ser associado novamente à sua página original."

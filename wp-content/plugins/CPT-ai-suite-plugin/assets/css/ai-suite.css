@@ -1,0 +1,705 @@
+ .ai-suite-services-single {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 0 20px;
+ }
+
+ .ai-suite-single-container {
+     width: 100%;
+     max-width: 1280px;
+ }
+
+ .ai-suite-title {
+     width: 100%;
+ }
+
+ .ai-suite-title .ai-suite-title__heading {
+     font-size: 66px;
+     color: var(--primary-color);
+     line-height: 114.99999999999999%;
+     margin-top: 152px;
+     margin-bottom: 0px;
+ }
+
+ .services-title__video-banner,
+ .services-title__video-banner video {
+     width: 100%;
+     height: 100%;
+     max-height: 621px;
+     object-fit: cover;
+ }
+
+ .services-title__video-banner {
+     position: relative;
+ }
+
+ .case-study-featured-image-text {
+     position: absolute;
+     right: 0;
+     bottom: 0;
+     width: 100%;
+     max-width: 520px;
+     background-color: var(--secondary-color);
+     z-index: 1;
+ }
+
+ .case-study-featured-image-text p {
+     text-align: right;
+     font-size: 25px;
+     line-height: 135%;
+     color: var(--primary-color);
+     font-weight: 600;
+     margin: 0;
+     margin-top: 20px;
+     margin-left: 25px;
+ }
+
+ .ai-suite-overview-shoppers-search-today__container {
+     width: 100%;
+     max-width: 100%;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     /* background-color: #C2C2C2; */
+     padding: 0 0;
+ }
+
+ .ai-suite-overview-shoppers-search-today {
+     margin-top: 150px;
+ }
+
+ center,
+ .ai-suite-overview-shoppers-search-today {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+
+ .ai-suite-overview {
+     display: grid;
+     grid-auto-flow: column;
+     grid-auto-columns: 30% 70%;
+     width: 100%;
+     padding-right: max(0px, calc((100vw - 1280px) / 2));
+     position: relative;
+     justify-content: flex-end;
+ }
+
+ .ai-suite-overview.single {
+     grid-auto-columns: 100%;
+     padding-left: max(0px, calc((100vw - 1280px) / 2));
+ }
+
+ .services-overview-shoppers-search-today__overview_banner_image {
+
+     height: 100%;
+ }
+
+ .services-overview-shoppers-search-today__overview_banner_image img {
+     height: 100%;
+     max-width: 100%;
+     width: 100%;
+     display: block;
+     object-fit: cover;
+ }
+
+
+
+ .ai-suite-overview__inner {
+     /* max-width: 1320px; */
+     background: #fff;
+     padding: 60px 0 60px 60px;
+     border-style: solid;
+     border-right: none;
+     border-left-width: 10px;
+     border-top-width: 2px;
+     border-bottom-width: 2px;
+     border-top-color: var(--primary-color);
+     border-bottom-color: var(--primary-color);
+     border-left-color: var(--primary-color);
+     width: 78.5%;
+     width: 100%;
+     position: relative;
+ }
+
+ .ai-suite-overview__inner_banner_image {
+     display: none;
+ }
+
+ .ai-suite-overview__inner::after {
+     content: '';
+     width: 100%;
+     height: calc(100% + 10px);
+     background-color: #ffffff;
+     z-index: 1;
+     position: absolute;
+     left: 100%;
+     top: 50%;
+     transform: translateY(-50%)
+ }
+
+ .ai-suite-services-SEO__inner-content h2,
+ .ai-suite-overview__inner h2,
+ .related-services__title h2 {
+     font-size: 30px;
+     line-height: 135%;
+     font-weight: 900;
+     color: var(--primary-color);
+     max-width: 900px;
+     margin: 0;
+     margin-bottom: 18px;
+ }
+
+ .related-services__title h2 {
+     margin-bottom: 50px;
+ }
+
+ .ai-suite-overview__content p,
+ .key-services__intro p {
+     font-size: 19px;
+     margin: 0;
+     line-height: 28px;
+     color: #222222;
+ }
+
+ .ai-suite-overview__content {
+     display: flex;
+     flex-direction: column;
+     gap: 15px;
+ }
+
+ .ai-suite-key-services__inner h2 {
+     font-size: 30px;
+     line-height: 135%;
+     margin: 0;
+     margin-bottom: 20px;
+     color: var(--primary-color);
+ }
+
+ .ai-suite-key-services {
+     width: 100%;
+     background-color: #ffffff;
+     margin: 150px 0;
+     padding: 0 20px;
+ }
+
+ .key-services__intro p {
+     margin: 0;
+     margin-bottom: 50px;
+ }
+
+ .key-services__list {
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+     gap: 60px;
+ }
+
+ .key-services__item {
+     position: relative;
+     border: 2px solid var(--primary-color);
+     padding: 36px 30px 0px 32px;
+     background-color: #fff;
+     border-bottom: 0;
+     display: flex;
+     flex-direction: row;
+
+
+ }
+
+ .key-services__item::after {
+     content: '';
+     position: absolute;
+     height: 10px;
+     bottom: 100%;
+     background-color: var(--primary-color);
+     width: calc(100% + 4px);
+     z-index: 1;
+     left: 50%;
+     transform: translateX(-50%);
+ }
+
+ .key-services__index {
+     color: var(--primary-color);
+     line-height: 1;
+     height: max-content;
+     padding-right: 30px;
+ }
+
+ .key-services__text p {
+     font-size: 15px;
+     line-height: 150%;
+     color: #222222;
+     margin: 0;
+ }
+
+ .ai-suite-services-SEO {
+     width: 100%;
+     padding-left: 20px;
+     background-color: #F3F3F3;
+ }
+
+ .ai-suite-services-SEO__container {
+     padding-left: max(0px,
+             calc((100vw - 1320px) / 2));
+     padding-right: 0;
+     padding-top: 120px;
+     padding-bottom: 110px;
+ }
+
+ .services-SEO__inner-container .services-SEO__inner-container-wrapper {
+     display: grid;
+     grid-template-columns: 40% 60%;
+     gap: 60px;
+     align-items: start;
+ }
+
+ .ai-suite-services-SEO__inner-content {
+     width: 100%;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+ }
+
+ .services-SEO__lists {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
+ }
+
+ .ai-suite-services-SEO__inner-content h2 {
+     text-align: right;
+     margin-bottom: 20px;
+     line-height: normal;
+ }
+
+ .key-services__intro p {
+     text-align: right;
+ }
+
+ .ai-suite-key-services__inner .key-services__intro p {
+     text-align: left;
+ }
+
+ .detailed-service__image {
+     width: 100%;
+     height: 100%;
+ }
+
+ .detailed-service__image img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     max-width: 648px;
+ }
+
+ .services-SEO__lists-items {
+     display: flex;
+     flex-direction: row;
+     width: 100%;
+     border: solid 2px var(--primary-color);
+     border-right: none;
+     background: #ffffff;
+     position: relative;
+     padding: 30px 40px;
+
+ }
+
+ .services-SEO__lists-items::after {
+     content: '';
+     position: absolute;
+     left: 0;
+     width: 10px;
+     height: calc(100% + 4px);
+     top: 50%;
+     transform: translateY(-50%);
+     z-index: 1;
+     background-color: var(--primary-color);
+ }
+
+ .services-SEO__lists-items-content {
+     width: 100%;
+     max-width: 520px;
+
+ }
+
+ .services-SEO__lists-items__icon {
+     width: max-content;
+     margin-right: 30px;
+     min-width: 32px;
+ }
+
+ .services-SEO__lists-items__icon span {
+     min-width: 32px;
+ }
+
+ .services-SEO__lists-items-content h3,
+ .services-SEO__lists-items-content p,
+ .related-service-item__title,
+ .related-service-item__type {
+     padding: 0;
+     margin: 0;
+     font-size: 15px;
+     line-height: 150%;
+
+ }
+
+ .services-SEO__lists-items-content h3 {
+     color: #222222;
+     margin-bottom: 14px;
+ }
+
+ .service-template-default .faq-block .faq-block__heading {
+     text-align: center;
+ }
+
+ .ai-suite-faq {
+     padding-top: 70px;
+     padding-bottom: 30px;
+     padding-left: 20px;
+     padding-right: 20px;
+ }
+
+ .ai-suite-faq h2 {
+     text-align: center;
+ }
+
+ .related-services {
+     padding: 0 20px;
+
+ }
+
+ .related-services__inner-content {
+     display: flex;
+     flex-direction: column;
+     width: 100%;
+     max-width: 1280px;
+     margin: auto;
+     padding-top: 140px;
+     padding-bottom: 70px;
+ }
+
+ .related-services_lists {
+     display: grid;
+     width: 100%;
+     grid-template-columns: repeat(4, 1fr);
+     gap: 60px;
+     padding-bottom: 50px;
+
+ }
+
+ .related-service-item__title {
+     display: -webkit-box;
+     -webkit-box-orient: vertical;
+     -webkit-line-clamp: 1;
+     overflow: hidden;
+ }
+
+ .related-service-item__title,
+ .related-service-item__type {
+     color: var(--primary-color);
+ }
+
+ .related-service-item {
+     padding: 8px 20px 8px 0;
+     border: solid 2px var(--primary-color);
+     border-left: none;
+     border-right: 10px;
+     position: relative;
+
+ }
+
+ .related-service-item::after {
+     position: absolute;
+     content: '';
+     width: 10px;
+     right: 0;
+     height: calc(100% + 4px);
+     top: 50%;
+     transform: translateY(-50%);
+     background-color: var(--primary-color);
+ }
+
+ .related-services__see-all-services {
+     padding-bottom: 60px;
+ }
+
+ .related-services__see-all-services a {
+     font-size: 22px;
+     line-height: 125%;
+     font-weight: 500;
+     color: var(--secondary-color);
+     padding: 16px 34px;
+     background-color: var(--primary-color);
+
+ }
+
+ .related-services__see-all-services a:hover {
+     color: var(--secondary-color);
+ }
+
+ .ai-suite-key-services__inner {
+     max-width: 1280px;
+     margin: auto;
+ }
+
+ .ai-suite-case-study .related-case-studies__list {
+     padding-top: 30px;
+ }
+
+ .ai-suite-case-study .case-study-related-case-studies p {
+     color: #000000;
+ }
+
+ .ai-suite-featured-image-text {
+     position: absolute;
+     bottom: 0;
+     right: 0;
+     background-color: var(--secondary-color);
+ }
+
+ .ai-suite-featured-image-text p {
+     text-align: right;
+     font-size: 25px;
+     line-height: 135%;
+     color: var(--primary-color);
+     font-weight: 600;
+     margin: 20px 10px 10px 25px;
+ }
+
+
+ .ai-suite-featured-image {
+     margin: auto;
+     position: relative;
+     width: 100%;
+     max-width: 1280px;
+ }
+
+ .ai-suite-featured-image img {
+     display: block;
+     width: 100%;
+
+
+ }
+
+ @media (max-width:1280px) {
+     .ai-suite-overview__inner {
+         padding: 60px 20px 60px 60px;
+     }
+ }
+
+ @media (max-width: 1200px) {
+     .key-services__list {
+         grid-template-columns: repeat(2, 1fr);
+         row-gap: 50px;
+         column-gap: 20px;
+     }
+ }
+
+ @media (max-width:1024px) {
+     .services-SEO__inner-container .services-SEO__inner-container-wrapper {
+         gap: 30px;
+     }
+
+     .video-banner__tagline {
+         right: 16px;
+         bottom: 16px;
+         font-size: 16px;
+         max-width: 85%;
+     }
+
+     .related-services_lists {
+         gap: 30px;
+     }
+
+     .services-SEO__lists-items {
+         padding: 20px 30px 20px 30px;
+     }
+
+     .ai-suite-services-SEO {
+         width: 100%;
+         padding-left: 0;
+         padding: 0 20px;
+         background-color: #F3F3F3;
+     }
+
+     .detailed-service__image {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+     }
+
+     .related-services__see-all-services a {
+         font-size: 19px;
+
+     }
+
+ }
+
+ @media (max-width: 768px) {
+     .ai-suite-featured-image-text {
+         position: relative;
+         right: auto
+     }
+
+     .ai-suite-featured-image-text p {
+         margin: 10px 10px 10px 0;
+         text-align: start;
+         font-size: 16px;
+     }
+
+     .related-services_lists {
+         gap: 20px;
+     }
+
+     .video-banner__tagline {
+         right: 16px;
+         bottom: 16px;
+         font-size: 16px;
+         max-width: 85%;
+     }
+
+
+
+     .ai-suite-overview {
+         grid-auto-columns: 1fr;
+     }
+
+     .services-overview-shoppers-search-today__overview_banner_image {
+         display: none;
+     }
+
+     .ai-suite-services-SEO__inner-content h2,
+     .ai-suite-overview__inner h2,
+     .related-services__title h2 {
+         font-size: 25px;
+         margin-bottom: 15px;
+     }
+
+     .ai-suite-overview__content p,
+     .key-services__intro p {
+         font-size: 16px;
+         line-height: 24px;
+     }
+
+     .ai-suite-key-services {
+
+         margin: 80px 0;
+         padding: 0 20px;
+     }
+
+     .key-services__list {
+         grid-template-columns: 1fr;
+         gap: 30px;
+     }
+
+     .key-services__item {
+         padding: 20px 20px 0px 20px;
+     }
+
+
+     .key-services__index {
+         font-size: 45px;
+         padding-right: 20px;
+
+     }
+
+     .related-services_lists {
+         display: grid;
+         width: 100%;
+         grid-template-columns: repeat(1, 1fr);
+     }
+
+     .services-SEO__inner-container .services-SEO__inner-container-wrapper {
+         gap: 20px;
+         grid-template-columns: repeat(1, 1fr);
+     }
+
+     .ai-suite-title .ai-suite-title__heading {
+         margin: 0;
+         margin-top: 60px;
+         font-size: 35px;
+         margin-bottom: 00px;
+     }
+
+     .case-study-featured-image-text {
+         position: relative;
+         width: 100%;
+         max-width: 100%;
+
+     }
+
+     .case-study-featured-image-text p {
+         text-align: left;
+         margin-left: 0;
+         font-size: 19px;
+     }
+
+     .ai-suite-overview-shoppers-search-today {
+         margin-top: 80px;
+     }
+
+     .ai-suite-overview__inner_banner_image {
+         display: block;
+     }
+
+     .ai-suite-overview__inner_banner_image img {
+         display: block;
+         width: 100%;
+         height: auto;
+         max-height: 320px;
+         margin-bottom: 10px;
+         object-fit: cover;
+     }
+
+     .ai-suite-overview__inner {
+         width: 100%;
+         padding: 20px 20px 20px 20px;
+     }
+
+     .ai-suite-services-SEO__container {
+         padding-top: 80px;
+         padding-bottom: 80px;
+     }
+
+     .key-services__intro p {
+         margin: 0;
+         margin-bottom: 30px;
+     }
+
+     .services-SEO__lists-items__icon {
+         width: max-content;
+         margin-right: 20px;
+     }
+
+     .ai-suite-faq {
+         padding-top: 0;
+         padding-bottom: 0;
+     }
+
+     .related-case-study__read-all-case-studies a {
+         font-size: 16px;
+
+     }
+
+     .ai-suite-case-study .related-case-studies__list {
+         padding-bottom: 30px;
+     }
+
+     .related-services__see-all-services a {
+         font-size: 16px;
+         padding: 15px 25px;
+     }
+
+     .related-services__inner-content {
+
+         padding-top: 80px;
+         padding-bottom: 20px;
+     }
+
+     .ai-suite-key-services__inner h2 {
+         font-size: 25px;
+     }
+ }

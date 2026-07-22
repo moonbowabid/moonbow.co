@@ -1,0 +1,141 @@
+# Copyright (C) 2026 GoDaddy
+# This file is distributed under the same license as the WordPress Site Designer MU-Plugins plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress Site Designer MU-Plugins\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/plugin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-03-17T14:36:53+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: wp-site-designer-mu-plugins\n"
+
+#. Plugin Name of the plugin
+#: wp-site-designer-mu-plugins.php
+msgid "WordPress Site Designer MU-Plugins"
+msgstr "Các plugin bắt buộc (MU plugin) đối với Công cụ thiết kế trang web WordPress"
+
+#. Description of the plugin
+#: wp-site-designer-mu-plugins.php
+msgid "MU-Plugins for WordPress Site Designer integration"
+msgstr "Các plugin bắt buộc để tích hợp Công cụ thiết kế trang web WordPress"
+
+#. Author of the plugin
+#: wp-site-designer-mu-plugins.php
+msgid "GoDaddy"
+msgstr "GoDaddy"
+
+#. translators: %s: plugin or theme name
+#. translators: %s: theme name
+#: includes/compat/class-compatibility-modal.php:198
+#: includes/compat/class-compatibility-modal.php:200
+#, php-format
+msgid "Activating %s will limit Airo features"
+msgstr "Kích hoạt%s sẽ hạn chế các tính năng của Airo"
+
+#: includes/compat/class-compatibility-modal.php:201
+msgid "Certain plugins limit what Airo for WordPress can do for your site. To keep all of Airo's design capabilities, cancel this activation."
+msgstr "Một số plugin hạn chế những khả năng Airo cho WordPress có thể mang lại cho trang web của bạn. Để giữ nguyên tất cả các khả năng thiết kế của Airo, hãy huỷ kích hoạt."
+
+#: includes/compat/class-compatibility-modal.php:202
+msgid "Certain themes limit what Airo for WordPress can do for your site. To keep all of Airo's design capabilities, cancel this activation."
+msgstr "Một số giao diện hạn chế những khả năng Airo cho WordPress có thể mang lại cho trang web của bạn. Để giữ nguyên tất cả các khả năng thiết kế của Airo, hãy huỷ kích hoạt."
+
+#: includes/compat/class-compatibility-modal.php:203
+msgid "This plugin is under review. It may or may not cause issues with Airo."
+msgstr "Plugin này đang được đánh giá. Plugin có thể có hoặc không gây ra sự cố với Airo."
+
+#: includes/compat/class-compatibility-modal.php:204
+msgid "Continue Anyway"
+msgstr "Vẫn cứ tiếp tục"
+
+#: includes/compat/class-compatibility-modal.php:205
+msgid "Cancel Activation"
+msgstr "Huỷ kích hoạt"
+
+#: includes/compat/class-compatibility-modal.php:206
+msgid "Don't show plugin warnings again"
+msgstr "Không hiển thị lại cảnh báo về plugin"
+
+#: includes/compat/class-compatibility-modal.php:207
+msgid "Don't show theme warnings again"
+msgstr "Không hiển thị lại cảnh báo về giao diện"
+
+#. translators: %s: plugin name
+#: includes/compat/class-compatibility-notices.php:127
+#: includes/compat/class-compatibility-notices.php:274
+#, php-format
+msgid "Some Airo for WordPress features are now limited, deactivate %s to restore full functionality."
+msgstr "Một số tính năng của Airo cho WordPress hiện đã bị hạn chế, vui lòng tắt %s để khôi phục đầy đủ chức năng."
+
+#. translators: %s: plugin name
+#: includes/compat/class-compatibility-notices.php:143
+#, php-format
+msgid "Deactivate %s"
+msgstr "Tắt %s"
+
+#. translators: %s: recommended theme name
+#: includes/compat/class-compatibility-notices.php:172
+#: includes/compat/class-compatibility-notices.php:290
+#, php-format
+msgid "Some Airo for WordPress features are now limited, switch to %s to restore full functionality."
+msgstr "Một số tính năng của Airo cho WordPress hiện đã bị hạn chế, vui lòng chuyển sang %s để khôi phục đầy đủ chức năng."
+
+#. translators: %s: recommended theme name
+#: includes/compat/class-compatibility-notices.php:186
+#, php-format
+msgid "Switch to %s"
+msgstr "Chuyển sang %s"
+
+#: includes/compat/class-compatibility-notices.php:218
+msgid "Deactivating..."
+msgstr "Đang hủy kích hoạt..."
+
+#: includes/compat/class-compatibility-notices.php:219
+msgid "Switching..."
+msgstr "Đang chuyển..."
+
+#: includes/compat/class-compatibility-notices.php:220
+msgid "Error - Try Again"
+msgstr "Có lỗi; vui lòng thử lại"
+
+#: includes/compat/class-theme-compatibility.php:304
+msgid "Incompatible Theme - Airo for WordPress features are limited"
+msgstr "Giao diện không tương thích – Tính năng của Airo cho WordPress bị hạn chế"
+
+#: includes/extensions/class-safari-storage-access.php:169
+msgid "Loading..."
+msgstr "Đang tải..."
+
+#: includes/extensions/class-safari-storage-access.php:228
+#: includes/extensions/class-safari-storage-access.php:352
+msgid "Allow Safari to show your site"
+msgstr "Cho phép Safari hiển thị trang web của bạn"
+
+#: includes/extensions/class-safari-storage-access.php:353
+msgid "When you click on the button below, Safari will ask for permission. Tap \"Allow\" to view your WordPress site."
+msgstr "Khi bạn nhấp chuột vào nút bên dưới, Safari sẽ yêu cầu quyền truy cập. Chạm vào \"Cho phép\" để xem trang web WordPress của bạn."
+
+#: includes/extensions/class-safari-storage-access.php:356
+msgid "Step 2/2"
+msgstr "Bước 2/2"
+
+#: includes/extensions/class-safari-storage-access.php:358
+msgid "Allow in Safari"
+msgstr "Cho phép trong Safari"
+
+#: includes/extensions/class-safari-storage-access.php:369
+msgid "Allowing..."
+msgstr "Đang cho phép..."
+
+#: includes/utils/class-request-validator.php:510
+msgid "Empty Origin"
+msgstr "Nguồn trống rỗng"
+
+#: includes/utils/class-request-validator.php:520
+msgid "Invalid Origin Format"
+msgstr "Định dạng nguồn không hợp lệ"

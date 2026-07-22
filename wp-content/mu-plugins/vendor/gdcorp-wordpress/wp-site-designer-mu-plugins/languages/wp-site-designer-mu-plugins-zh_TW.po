@@ -1,0 +1,141 @@
+# Copyright (C) 2026 GoDaddy
+# This file is distributed under the same license as the WordPress Site Designer MU-Plugins plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress Site Designer MU-Plugins\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/plugin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-03-17T14:36:53+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: wp-site-designer-mu-plugins\n"
+
+#. Plugin Name of the plugin
+#: wp-site-designer-mu-plugins.php
+msgid "WordPress Site Designer MU-Plugins"
+msgstr "WordPress 網站設計工具 MU 外掛"
+
+#. Description of the plugin
+#: wp-site-designer-mu-plugins.php
+msgid "MU-Plugins for WordPress Site Designer integration"
+msgstr "WordPress 網站設計工具專用 MU 外掛整合功能"
+
+#. Author of the plugin
+#: wp-site-designer-mu-plugins.php
+msgid "GoDaddy"
+msgstr "GoDaddy"
+
+#. translators: %s: plugin or theme name
+#. translators: %s: theme name
+#: includes/compat/class-compatibility-modal.php:198
+#: includes/compat/class-compatibility-modal.php:200
+#, php-format
+msgid "Activating %s will limit Airo features"
+msgstr "啟用 %s 會導致 Airo 功能受限"
+
+#: includes/compat/class-compatibility-modal.php:201
+msgid "Certain plugins limit what Airo for WordPress can do for your site. To keep all of Airo's design capabilities, cancel this activation."
+msgstr "特定外掛會影響 Airo for WordPress 的網站功能，如果想保留所有 Airo 功能，請取消啟用。"
+
+#: includes/compat/class-compatibility-modal.php:202
+msgid "Certain themes limit what Airo for WordPress can do for your site. To keep all of Airo's design capabilities, cancel this activation."
+msgstr "特定主題會影響 Airo for WordPress 的網站功能，如果想保留所有 Airo 功能，請取消啟用。"
+
+#: includes/compat/class-compatibility-modal.php:203
+msgid "This plugin is under review. It may or may not cause issues with Airo."
+msgstr "這個外掛正在審核中，可能會或不會影響 Airo 功能。"
+
+#: includes/compat/class-compatibility-modal.php:204
+msgid "Continue Anyway"
+msgstr "仍要繼續進行"
+
+#: includes/compat/class-compatibility-modal.php:205
+msgid "Cancel Activation"
+msgstr "取消啟用"
+
+#: includes/compat/class-compatibility-modal.php:206
+msgid "Don't show plugin warnings again"
+msgstr "不再顯示外掛警告"
+
+#: includes/compat/class-compatibility-modal.php:207
+msgid "Don't show theme warnings again"
+msgstr "不再顯示主題警告"
+
+#. translators: %s: plugin name
+#: includes/compat/class-compatibility-notices.php:127
+#: includes/compat/class-compatibility-notices.php:274
+#, php-format
+msgid "Some Airo for WordPress features are now limited, deactivate %s to restore full functionality."
+msgstr "目前部分 Airo for WordPress 功能受限，如果想還原完整功能，請停用 %s。"
+
+#. translators: %s: plugin name
+#: includes/compat/class-compatibility-notices.php:143
+#, php-format
+msgid "Deactivate %s"
+msgstr "停用 %s"
+
+#. translators: %s: recommended theme name
+#: includes/compat/class-compatibility-notices.php:172
+#: includes/compat/class-compatibility-notices.php:290
+#, php-format
+msgid "Some Airo for WordPress features are now limited, switch to %s to restore full functionality."
+msgstr "目前部分 Airo for WordPress 功能受限，如果想還原完整功能，請改用 %s。"
+
+#. translators: %s: recommended theme name
+#: includes/compat/class-compatibility-notices.php:186
+#, php-format
+msgid "Switch to %s"
+msgstr "改用 %s"
+
+#: includes/compat/class-compatibility-notices.php:218
+msgid "Deactivating..."
+msgstr "正在停用……"
+
+#: includes/compat/class-compatibility-notices.php:219
+msgid "Switching..."
+msgstr "正在變更……"
+
+#: includes/compat/class-compatibility-notices.php:220
+msgid "Error - Try Again"
+msgstr "錯誤 - 請再試一次"
+
+#: includes/compat/class-theme-compatibility.php:304
+msgid "Incompatible Theme - Airo for WordPress features are limited"
+msgstr "主題不相容 - Airo for WordPress 功能受限"
+
+#: includes/extensions/class-safari-storage-access.php:169
+msgid "Loading..."
+msgstr "正在載入……"
+
+#: includes/extensions/class-safari-storage-access.php:228
+#: includes/extensions/class-safari-storage-access.php:352
+msgid "Allow Safari to show your site"
+msgstr "允許 Safari 顯示您的網站"
+
+#: includes/extensions/class-safari-storage-access.php:353
+msgid "When you click on the button below, Safari will ask for permission. Tap \"Allow\" to view your WordPress site."
+msgstr "按下方按鈕後，Safari 會要求取得權限，點一下「允許」即可檢視 WordPress 網站。"
+
+#: includes/extensions/class-safari-storage-access.php:356
+msgid "Step 2/2"
+msgstr "步驟 2/2"
+
+#: includes/extensions/class-safari-storage-access.php:358
+msgid "Allow in Safari"
+msgstr "在 Safari 允許"
+
+#: includes/extensions/class-safari-storage-access.php:369
+msgid "Allowing..."
+msgstr "正在允許……"
+
+#: includes/utils/class-request-validator.php:510
+msgid "Empty Origin"
+msgstr "空白來源"
+
+#: includes/utils/class-request-validator.php:520
+msgid "Invalid Origin Format"
+msgstr "來源格式無效"

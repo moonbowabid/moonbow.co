@@ -1,0 +1,20 @@
+#wpadminbar #wp-admin-bar-wpaas-whats-new .dashicons,
+#wpadminbar #wp-admin-bar-wpaas-whats-new .dashicons::before {
+    font-family: 'dashicons' !important;
+    font-size: 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+    line-height: 1 !important;
+    display: inline-block !important;
+    vertical-align: text-bottom;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+#wpadminbar .wpaas-green-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #5AA56D;
+    border-radius: 50%;
+    vertical-align: middle;
+}

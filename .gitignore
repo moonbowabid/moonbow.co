@@ -1,0 +1,123 @@
+# -------------------------
+# OS / Editor
+# -------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+.idea/
+.vscode/
+
+# -------------------------
+# Environment files
+# -------------------------
+.env
+.env.*
+wp-config.php
+
+# -------------------------
+# WordPress core (host-managed on GoDaddy/WPaaS — not tracked)
+# -------------------------
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/index.php
+/xmlrpc.php
+/plat-cron.php
+/license.txt
+/readme.html
+/.htaccess
+
+# -------------------------
+# WordPress content
+# -------------------------
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/ai1wm-backups/
+/wp-content/backups/
+/wp-content/wflogs/
+/wp-content/debug.log
+/wp-content/object-cache.php
+
+# Track themes & plugins source
+!wp-content/themes/
+!wp-content/plugins/
+!wp-content/mu-plugins/
+
+# Work-in-progress duplicate theme — do NOT track (will be merged into moonbow)
+/wp-content/themes/moonbow-zahid/
+
+# Ignore dev-only artifacts (vendor/dist/build stay tracked — they are
+# shipped runtime code inside the bundled third-party plugins)
+**/node_modules/
+**/.parcel-cache/
+
+# -------------------------
+# Logs
+# -------------------------
+*.log
+php_errorlog
+error_log
+access.log
+
+# -------------------------
+# Backup & dump files
+# -------------------------
+*.sql
+*.sql.gz
+*.sql.zip
+*.bak
+*.backup
+*.old
+*.orig
+
+# -------------------------
+# Compressed archives
+# -------------------------
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.bz2
+*.xz
+
+# -------------------------
+# Design / source files
+# -------------------------
+*.psd
+*.ai
+*.xd
+*.sketch
+*.fig
+*.pdf
+
+# -------------------------
+# Media raw files
+# -------------------------
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wav
+*.flac
+
+# -------------------------
+# Temporary & cache
+# -------------------------
+.cache/
+.tmp/
+.temp/
+*.cache
+
+# -------------------------
+# Server & deployment
+# -------------------------
+web.config
+nginx.conf
+docker-compose.yml
+docker/
+.kubernetes/

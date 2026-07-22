@@ -1,0 +1,351 @@
+/**
+ * Enhanced Repeater Field - Admin Styles
+ * Works with ACF's standard classes
+ */
+
+/* Repeater Container */
+.acf-repeater[data-type="repeater"] {
+    margin-top: 10px;
+}
+
+/* Remove Row Animation */
+.acf-row.acf-removing {
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+/* Collapsed Row */
+.acf-row.-collapsed .acf-input {
+    display: none;
+}
+
+.acf-row.-collapsed {
+    opacity: 0.6;
+}
+
+/* Sortable Placeholder */
+.acf-sortable-placeholder {
+    background: #f0f0f1;
+    border: 2px dashed #c3c4c7;
+    visibility: visible !important;
+}
+
+/* Legacy support for old class names */
+.agrfuxd-repeater-field {
+    margin-top: 10px;
+}
+
+.agrfuxd-repeater-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.agrfuxd-repeater-table thead {
+    background: #f9f9f9;
+}
+
+.agrfuxd-repeater-table thead th {
+    padding: 10px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid #ddd;
+    font-size: 13px;
+}
+
+.agrfuxd-repeater-table thead th.agrfuxd-col-order {
+    width: 40px;
+    text-align: center;
+}
+
+.agrfuxd-repeater-table thead th.agrfuxd-col-actions {
+    width: 80px;
+    text-align: center;
+}
+
+.agrfuxd-repeater-row {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.agrfuxd-repeater-row:hover {
+    background: #f9f9f9;
+}
+
+.agrfuxd-repeater-row td {
+    padding: 10px;
+    vertical-align: top;
+}
+
+.agrfuxd-repeater-row.ui-sortable-helper {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0.9;
+}
+
+.agrfuxd-order-handle {
+    cursor: move;
+    text-align: center;
+    color: #999;
+    padding: 5px;
+}
+
+.agrfuxd-order-handle:hover {
+    color: #2271b1;
+}
+
+.agrfuxd-row-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-height: 32px;
+}
+
+.agrfuxd-row-index {
+    font-weight: 600;
+    color: #666;
+}
+
+/* Field Inputs */
+.agrfuxd-repeater-row input[type="text"],
+.agrfuxd-repeater-row input[type="number"],
+.agrfuxd-repeater-row input[type="email"],
+.agrfuxd-repeater-row input[type="url"],
+.agrfuxd-repeater-row textarea,
+.agrfuxd-repeater-row select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.agrfuxd-repeater-row textarea {
+    min-height: 60px;
+    resize: vertical;
+}
+
+.agrfuxd-repeater-row .acf-field {
+    margin: 0;
+    padding: 0;
+}
+
+.agrfuxd-repeater-row .acf-field .acf-label {
+    display: none; /* Hide labels in table view */
+}
+
+.agrfuxd-repeater-row .acf-field .acf-input {
+    margin: 0;
+}
+
+/* Row Actions */
+.agrfuxd-row-actions {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.agrfuxd-remove-row,
+.agrfuxd-duplicate-row {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #666;
+    cursor: pointer;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.agrfuxd-remove-row:hover {
+    border-color: #d63638;
+    background: #d63638;
+    color: #fff;
+}
+
+.agrfuxd-duplicate-row:hover {
+    border-color: #2271b1;
+    background: #2271b1;
+    color: #fff;
+}
+
+.agrfuxd-remove-row:focus,
+.agrfuxd-duplicate-row:focus {
+    outline: 2px solid #2271b1;
+    outline-offset: 1px;
+}
+
+/* Add Row Button */
+.agrfuxd-add-row-container {
+    padding: 15px 0;
+}
+
+.agrfuxd-add-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 16px;
+    background: #2271b1;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.agrfuxd-add-row:hover {
+    background: #135e96;
+    color: #fff;
+}
+
+.agrfuxd-add-row:focus {
+    outline: 2px solid #2271b1;
+    outline-offset: 2px;
+}
+
+/* Row Template (hidden) */
+.agrfuxd-row-template {
+    display: none !important;
+}
+
+/* Block Layout */
+.agrfuxd-repeater-block {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.agrfuxd-repeater-block .agrfuxd-repeater-row {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    background: #fff;
+    position: relative;
+}
+
+.agrfuxd-repeater-block .agrfuxd-repeater-row:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.agrfuxd-repeater-block .agrfuxd-row-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.agrfuxd-repeater-block .agrfuxd-row-number {
+    background: #f0f0f1;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.agrfuxd-repeater-block .agrfuxd-row-actions {
+    margin-left: auto;
+}
+
+.agrfuxd-repeater-block .agrfuxd-row-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.agrfuxd-repeater-block .acf-field .acf-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+/* Row Layout */
+.agrfuxd-repeater-row-layout .agrfuxd-repeater-row {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #fff;
+}
+
+.agrfuxd-repeater-row-layout .agrfuxd-row-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.agrfuxd-repeater-row-layout .agrfuxd-row-fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+/* Empty State */
+.agrfuxd-empty-state {
+    padding: 40px 20px;
+    text-align: center;
+    background: #f9f9f9;
+    border: 2px dashed #ddd;
+    border-radius: 4px;
+    color: #666;
+}
+
+.agrfuxd-empty-state p {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+}
+
+/* Status Bar */
+.agrfuxd-status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 12px;
+    color: #666;
+}
+
+.agrfuxd-row-count-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Responsive */
+@media (max-width: 782px) {
+    .agrfuxd-repeater-table {
+        font-size: 12px;
+    }
+
+    .agrfuxd-repeater-table thead th,
+    .agrfuxd-repeater-row td {
+        padding: 8px 5px;
+    }
+
+    .agrfuxd-remove-row,
+    .agrfuxd-duplicate-row {
+        width: 24px;
+        height: 24px;
+        font-size: 12px;
+    }
+}
+
+/* Icons */
+.dashicons {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}

@@ -1,0 +1,58 @@
+# Copyright (C) 2026 GoDaddy
+# This file is distributed under the same license as the Site Designer WP Extensions package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Site Designer WP Extensions\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/plugin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-04-30T15:00:00+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Domain: wp-site-designer-wp-extensions\n"
+
+#: includes/extensions/class-draft-mode.php:150
+msgid "Airo Draft"
+msgstr "แบบร่าง Airo"
+
+#. translators: %s is the original page title.
+#: includes/extensions/class-draft-mode.php:182
+#, php-format
+msgid "Airo draft of: %s"
+msgstr "แบบร่าง Airo: %s"
+
+#: includes/extensions/class-draft-mode.php:186
+msgid "Draft Version"
+msgstr "ฉบับร่าง"
+
+#. translators: %s is the date the Airo draft was created.
+#: includes/extensions/class-draft-mode.php:202
+#, php-format
+msgid "Airo draft created: %s"
+msgstr "สร้างแบบร่าง Airo แล้ว: %s"
+
+#: includes/extensions/class-draft-mode.php:206
+msgid "Has Draft"
+msgstr "มีแบบร่าง"
+
+#: includes/extensions/class-draft-mode.php:116
+msgid "The original page no longer exists."
+msgstr "หน้าเดิมไม่มีอีกต่อไป"
+
+#: includes/extensions/class-draft-mode.php:128
+msgid "The original page already has an active draft."
+msgstr "หน้าเดิมมีฉบับร่างที่ใช้งานอยู่แล้ว"
+
+#: includes/extensions/class-draft-mode.php:140
+msgid "Failed to restore the draft from trash."
+msgstr "ไม่สามารถกู้คืนฉบับร่างจากถังขยะได้"
+
+#: includes/extensions/class-draft-mode.php:162
+msgid "Failed to force the restored draft back to draft status."
+msgstr "ไม่สามารถบังคับให้ฉบับร่างที่กู้คืนมากลับไปเป็นสถานะฉบับร่างได้"
+
+#: includes/extensions/class-draft-mode.php:177
+msgid "The draft was restored from trash but could not be re-linked to its original page."
+msgstr "ฉบับร่างที่กู้คืนจากถังขยะ แต่ไม่สามารถลิงก์ไปยังหน้าเดิมอีกครั้งได้"

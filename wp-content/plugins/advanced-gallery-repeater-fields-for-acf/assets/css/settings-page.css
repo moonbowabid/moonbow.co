@@ -1,0 +1,476 @@
+/**
+ * ACF Gallery & Repeater - Modern Settings Page Styles
+ */
+
+.agrfuxd-settings-wrap {
+    margin: 0 -20px 0 -22px;
+    padding: 0;
+    background: #f0f0f1;
+    min-height: 100vh;
+}
+
+/* Header */
+.agrfuxd-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 30px 40px;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.agrfuxd-header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.agrfuxd-logo-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.agrfuxd-logo-section .dashicons {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    opacity: 0.9;
+}
+
+.agrfuxd-header h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.agrfuxd-version {
+    margin: 5px 0 0 0;
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+/* Content Grid */
+.agrfuxd-content-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 40px;
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+    align-items: start;
+}
+
+@media (max-width: 1200px) {
+    .agrfuxd-content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Cards */
+.agrfuxd-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.agrfuxd-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.agrfuxd-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 25px;
+    border-bottom: 1px solid #f0f0f1;
+    background: #fafafa;
+}
+
+.agrfuxd-card-header .dashicons {
+    color: #667eea;
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+}
+
+.agrfuxd-card-header h2,
+.agrfuxd-card-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+.agrfuxd-card-body {
+    padding: 25px;
+}
+
+/* Accent Cards */
+.agrfuxd-card-accent .agrfuxd-card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+}
+
+.agrfuxd-card-accent .agrfuxd-card-header .dashicons,
+.agrfuxd-card-accent .agrfuxd-card-header h3 {
+    color: #fff;
+}
+
+/* Feature Card */
+.agrfuxd-card-feature .agrfuxd-card-header {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: #fff;
+    border: none;
+}
+
+.agrfuxd-card-feature .agrfuxd-card-header .dashicons,
+.agrfuxd-card-feature .agrfuxd-card-header h3 {
+    color: #fff;
+}
+
+/* Shortcode Section */
+.agrfuxd-shortcode-section {
+    margin-bottom: 30px;
+}
+
+.agrfuxd-shortcode-section:last-child {
+    margin-bottom: 0;
+}
+
+.agrfuxd-shortcode-section h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+.agrfuxd-shortcode-section p {
+    margin: 0 0 15px 0;
+    color: #666;
+}
+
+/* Code Block */
+.agrfuxd-code-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #2d2d2d;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 15px 0;
+    gap: 15px;
+}
+
+.agrfuxd-code-block code {
+    flex: 1;
+    color: #f8f8f2;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+.agrfuxd-copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #667eea;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.agrfuxd-copy-btn:hover {
+    background: #5568d3;
+    transform: translateY(-1px);
+}
+
+.agrfuxd-copy-btn.copied {
+    background: #46c93a;
+}
+
+.agrfuxd-copy-btn .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* Parameters */
+.agrfuxd-params {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.agrfuxd-params h4 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+.agrfuxd-params ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.agrfuxd-params li {
+    margin: 8px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.agrfuxd-params code {
+    background: #fff;
+    padding: 3px 8px;
+    border-radius: 4px;
+    color: #667eea;
+    font-weight: 500;
+}
+
+.agrfuxd-params .required {
+    display: inline-block;
+    background: #d63638;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 5px;
+}
+
+.agrfuxd-params .optional {
+    display: inline-block;
+    background: #72aee6;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 5px;
+}
+
+/* Examples */
+.agrfuxd-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.agrfuxd-example {
+    padding: 12px 15px;
+    background: #f8f9fa;
+    border-left: 3px solid #667eea;
+    border-radius: 4px;
+}
+
+.agrfuxd-example strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #1e1e1e;
+    font-size: 13px;
+}
+
+.agrfuxd-example code {
+    color: #667eea;
+    font-size: 13px;
+}
+
+/* Divider */
+.agrfuxd-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+    margin: 30px 0;
+}
+
+/* Notices */
+.agrfuxd-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.agrfuxd-notice .dashicons {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.agrfuxd-notice p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.agrfuxd-notice.notice-info {
+    background: #e7f3ff;
+    border-left: 4px solid #72aee6;
+}
+
+.agrfuxd-notice.notice-info .dashicons {
+    color: #72aee6;
+}
+
+.agrfuxd-notice.notice-success {
+    background: #edfaed;
+    border-left: 4px solid #46c93a;
+}
+
+.agrfuxd-notice.notice-success .dashicons {
+    color: #46c93a;
+}
+
+/* Code Examples */
+.agrfuxd-code-example {
+    margin: 20px 0;
+}
+
+.agrfuxd-code-example h3 {
+    margin: 0 0 12px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+.agrfuxd-code-example pre {
+    background: #2d2d2d;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 0;
+}
+
+.agrfuxd-code-example code {
+    color: #f8f8f2;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Links List */
+.agrfuxd-links-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.agrfuxd-links-list li {
+    margin: 0;
+    border-bottom: 1px solid #f0f0f1;
+}
+
+.agrfuxd-links-list li:last-child {
+    border-bottom: none;
+}
+
+.agrfuxd-links-list a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    color: #1e1e1e;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.agrfuxd-links-list a:hover {
+    color: #667eea;
+    padding-left: 5px;
+}
+
+.agrfuxd-links-list .dashicons {
+    color: #999;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.agrfuxd-links-list a:hover .dashicons {
+    color: #667eea;
+}
+
+/* Steps List */
+.agrfuxd-steps-list {
+    margin: 0;
+    padding-left: 25px;
+    color: #666;
+}
+
+.agrfuxd-steps-list li {
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Features List */
+.agrfuxd-features-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.agrfuxd-features-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
+    font-size: 14px;
+    color: #1e1e1e;
+}
+
+.agrfuxd-features-list .dashicons {
+    color: #46c93a;
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 782px) {
+    .agrfuxd-header {
+        padding: 20px;
+    }
+
+    .agrfuxd-content-grid {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .agrfuxd-logo-section .dashicons {
+        font-size: 36px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .agrfuxd-header h1 {
+        font-size: 24px;
+    }
+
+    .agrfuxd-code-block {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .agrfuxd-copy-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

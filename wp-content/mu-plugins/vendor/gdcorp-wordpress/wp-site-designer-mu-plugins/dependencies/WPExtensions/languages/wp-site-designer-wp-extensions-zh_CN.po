@@ -1,0 +1,58 @@
+# Copyright (C) 2026 GoDaddy
+# This file is distributed under the same license as the Site Designer WP Extensions package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Site Designer WP Extensions\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/plugin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-04-30T15:00:00+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Domain: wp-site-designer-wp-extensions\n"
+
+#: includes/extensions/class-draft-mode.php:150
+msgid "Airo Draft"
+msgstr "Airo 草稿版"
+
+#. translators: %s is the original page title.
+#: includes/extensions/class-draft-mode.php:182
+#, php-format
+msgid "Airo draft of: %s"
+msgstr "Airo 生成的 %s 草稿"
+
+#: includes/extensions/class-draft-mode.php:186
+msgid "Draft Version"
+msgstr "草稿版本"
+
+#. translators: %s is the date the Airo draft was created.
+#: includes/extensions/class-draft-mode.php:202
+#, php-format
+msgid "Airo draft created: %s"
+msgstr "已创建 Airo 草稿：%s"
+
+#: includes/extensions/class-draft-mode.php:206
+msgid "Has Draft"
+msgstr "存在草稿"
+
+#: includes/extensions/class-draft-mode.php:116
+msgid "The original page no longer exists."
+msgstr "原始页面已不存在。"
+
+#: includes/extensions/class-draft-mode.php:128
+msgid "The original page already has an active draft."
+msgstr "原始页面已存在一个生效中的草稿。"
+
+#: includes/extensions/class-draft-mode.php:140
+msgid "Failed to restore the draft from trash."
+msgstr "无法从回收站恢复该草稿。"
+
+#: includes/extensions/class-draft-mode.php:162
+msgid "Failed to force the restored draft back to draft status."
+msgstr "未能将已恢复的草稿强制转回草稿状态。"
+
+#: includes/extensions/class-draft-mode.php:177
+msgid "The draft was restored from trash but could not be re-linked to its original page."
+msgstr "草稿已从回收站恢复，但无法重新链接至其原始页面。"

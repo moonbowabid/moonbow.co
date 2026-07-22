@@ -1,0 +1,149 @@
+/**
+ * ACF Gallery & Repeater Addon - Gallery Field Admin Styles
+ */
+
+.agrfuxd-gallery-field {
+    padding: 10px 0;
+}
+
+.agrfuxd-gallery-attachments {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+    min-height: 50px;
+}
+
+.agrfuxd-gallery-attachment {
+    position: relative;
+    background: #f0f0f1;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: move;
+    transition: box-shadow 0.2s ease;
+}
+
+.agrfuxd-gallery-attachment:hover {
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+.agrfuxd-gallery-attachment-preview {
+    position: relative;
+    padding-top: 100%;
+    background: #fff;
+}
+
+.agrfuxd-gallery-attachment-preview img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.agrfuxd-gallery-attachment-actions {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    gap: 3px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.agrfuxd-gallery-attachment:hover .agrfuxd-gallery-attachment-actions {
+    opacity: 1;
+}
+
+.agrfuxd-gallery-attachment-actions a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.agrfuxd-gallery-attachment-actions a:hover {
+    background: #fff;
+}
+
+.agrfuxd-gallery-attachment-actions .acf-icon.-minus:hover {
+    color: #d63638;
+}
+
+.agrfuxd-gallery-attachment-title {
+    padding: 5px 8px;
+    font-size: 11px;
+    color: #50575e;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: #f6f7f7;
+    border-top: 1px solid #c3c4c7;
+}
+
+/* Sortable placeholder */
+.agrfuxd-gallery-attachment-placeholder {
+    background: #f0f6fc;
+    border: 2px dashed #2271b1;
+    border-radius: 4px;
+}
+
+/* Toolbar */
+.agrfuxd-gallery-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* Hint */
+.agrfuxd-gallery-hint {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #f0f6fc;
+    border-left: 4px solid #2271b1;
+    font-size: 12px;
+    color: #50575e;
+}
+
+.agrfuxd-gallery-hint strong {
+    color: #1d2327;
+}
+
+/* Field hint in settings */
+.agrfuxd-field-hint {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f0f6fc;
+    border-left: 4px solid #2271b1;
+    font-size: 12px;
+}
+
+/* Empty state */
+.agrfuxd-gallery-attachments:empty::before {
+    content: 'No images selected. Click "Add Images" to get started.';
+    display: block;
+    padding: 30px;
+    text-align: center;
+    color: #787c82;
+    font-style: italic;
+    grid-column: 1 / -1;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+    .agrfuxd-gallery-attachments {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+    
+    .agrfuxd-gallery-attachment-title {
+        display: none;
+    }
+}

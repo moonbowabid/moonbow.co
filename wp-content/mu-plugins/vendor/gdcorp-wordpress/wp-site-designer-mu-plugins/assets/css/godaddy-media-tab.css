@@ -1,0 +1,43 @@
+/**
+ * GoDaddy Media Tab Styles
+ *
+ * Minimal CSS for the GoDaddy Media tab status states in wp.media.
+ * Uses WordPress admin aesthetic and reuses the built-in .spinner class.
+ */
+
+.gdmu-godaddy-media-content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	min-height: 250px;
+}
+
+.gdmu-godaddy-media-status {
+	text-align: center;
+	padding: 40px 20px;
+	max-width: 400px;
+}
+
+.gdmu-godaddy-media-status .spinner {
+	float: none;
+	display: inline-block;
+	margin: 0 0 10px 0;
+	visibility: visible;
+}
+
+.gdmu-godaddy-media-message {
+	font-size: 14px;
+	color: #50575e;
+	line-height: 1.6;
+	margin: 0;
+}
+
+.gdmu-godaddy-media-error .gdmu-godaddy-media-message {
+	color: #d63638;
+	margin-bottom: 16px;
+}
+
+.gdmu-godaddy-media-retry {
+	margin-top: 8px;
+}

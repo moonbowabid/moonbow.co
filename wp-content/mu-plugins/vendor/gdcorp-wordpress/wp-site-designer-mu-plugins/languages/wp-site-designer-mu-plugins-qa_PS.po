@@ -1,0 +1,141 @@
+# Copyright (C) 2026 GoDaddy
+# This file is distributed under the same license as the WordPress Site Designer MU-Plugins plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WordPress Site Designer MU-Plugins\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/plugin\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-03-17T14:36:53+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: wp-site-designer-mu-plugins\n"
+
+#. Plugin Name of the plugin
+#: wp-site-designer-mu-plugins.php
+msgid "WordPress Site Designer MU-Plugins"
+msgstr "⌠3638903⌡WòrdPréss Sîté Désîgnér MÜ-Plügîns⌠3638903⌡"
+
+#. Description of the plugin
+#: wp-site-designer-mu-plugins.php
+msgid "MU-Plugins for WordPress Site Designer integration"
+msgstr "⌠3638904⌡MÜ-Plügîns fòr WòrdPréss Sîté Désîgnér întégråtîòn⌠3638904⌡"
+
+#. Author of the plugin
+#: wp-site-designer-mu-plugins.php
+msgid "GoDaddy"
+msgstr "⌠3638905⌡GòDåddy⌠3638905⌡"
+
+#. translators: %s: plugin or theme name
+#. translators: %s: theme name
+#: includes/compat/class-compatibility-modal.php:198
+#: includes/compat/class-compatibility-modal.php:200
+#, php-format
+msgid "Activating %s will limit Airo features"
+msgstr "⌠3638906⌡Åctîvåtîng %s wîll lîmît Åîrò féåtürés⌠3638906⌡"
+
+#: includes/compat/class-compatibility-modal.php:201
+msgid "Certain plugins limit what Airo for WordPress can do for your site. To keep all of Airo's design capabilities, cancel this activation."
+msgstr "⌠3638907⌡Cértåîn plügîns lîmît whåt Åîrò fòr WòrdPréss cån dò fòr yòür sîté. Tò kéép åll òf Åîrò's désîgn cåpåbîlîtîés, cåncél thîs åctîvåtîòn.⌠3638907⌡"
+
+#: includes/compat/class-compatibility-modal.php:202
+msgid "Certain themes limit what Airo for WordPress can do for your site. To keep all of Airo's design capabilities, cancel this activation."
+msgstr "⌠3638908⌡Cértåîn thémés lîmît whåt Åîrò fòr WòrdPréss cån dò fòr yòür sîté. Tò kéép åll òf Åîrò's désîgn cåpåbîlîtîés, cåncél thîs åctîvåtîòn.⌠3638908⌡"
+
+#: includes/compat/class-compatibility-modal.php:203
+msgid "This plugin is under review. It may or may not cause issues with Airo."
+msgstr "⌠3638909⌡Thîs plügîn îs ündér révîéw. Ît måy òr måy nòt cåüsé îssüés wîth Åîrò.⌠3638909⌡"
+
+#: includes/compat/class-compatibility-modal.php:204
+msgid "Continue Anyway"
+msgstr "⌠3638910⌡Còntînüé Ånywåy⌠3638910⌡"
+
+#: includes/compat/class-compatibility-modal.php:205
+msgid "Cancel Activation"
+msgstr "⌠3638911⌡Cåncél Åctîvåtîòn⌠3638911⌡"
+
+#: includes/compat/class-compatibility-modal.php:206
+msgid "Don't show plugin warnings again"
+msgstr "⌠3638912⌡Dòn't shòw plügîn wårnîngs ågåîn⌠3638912⌡"
+
+#: includes/compat/class-compatibility-modal.php:207
+msgid "Don't show theme warnings again"
+msgstr "⌠3638913⌡Dòn't shòw thémé wårnîngs ågåîn⌠3638913⌡"
+
+#. translators: %s: plugin name
+#: includes/compat/class-compatibility-notices.php:127
+#: includes/compat/class-compatibility-notices.php:274
+#, php-format
+msgid "Some Airo for WordPress features are now limited, deactivate %s to restore full functionality."
+msgstr "⌠3638914⌡Sòmé Åîrò fòr WòrdPréss féåtürés åré nòw lîmîtéd, déåctîvåté %s tò réstòré füll fünctîònålîty.⌠3638914⌡"
+
+#. translators: %s: plugin name
+#: includes/compat/class-compatibility-notices.php:143
+#, php-format
+msgid "Deactivate %s"
+msgstr "⌠3638915⌡Déåctîvåté %s⌠3638915⌡"
+
+#. translators: %s: recommended theme name
+#: includes/compat/class-compatibility-notices.php:172
+#: includes/compat/class-compatibility-notices.php:290
+#, php-format
+msgid "Some Airo for WordPress features are now limited, switch to %s to restore full functionality."
+msgstr "⌠3638916⌡Sòmé Åîrò fòr WòrdPréss féåtürés åré nòw lîmîtéd, swîtch tò %s tò réstòré füll fünctîònålîty.⌠3638916⌡"
+
+#. translators: %s: recommended theme name
+#: includes/compat/class-compatibility-notices.php:186
+#, php-format
+msgid "Switch to %s"
+msgstr "⌠3638917⌡Swîtch tò %s⌠3638917⌡"
+
+#: includes/compat/class-compatibility-notices.php:218
+msgid "Deactivating..."
+msgstr "⌠3638918⌡Déåctîvåtîng...⌠3638918⌡"
+
+#: includes/compat/class-compatibility-notices.php:219
+msgid "Switching..."
+msgstr "⌠3638919⌡Swîtchîng...⌠3638919⌡"
+
+#: includes/compat/class-compatibility-notices.php:220
+msgid "Error - Try Again"
+msgstr "⌠3638920⌡Érròr - Try Ågåîn⌠3638920⌡"
+
+#: includes/compat/class-theme-compatibility.php:304
+msgid "Incompatible Theme - Airo for WordPress features are limited"
+msgstr "⌠3638921⌡Încòmpåtîblé Thémé - Åîrò fòr WòrdPréss féåtürés åré lîmîtéd⌠3638921⌡"
+
+#: includes/extensions/class-safari-storage-access.php:169
+msgid "Loading..."
+msgstr "⌠3638922⌡Lòådîng...⌠3638922⌡"
+
+#: includes/extensions/class-safari-storage-access.php:228
+#: includes/extensions/class-safari-storage-access.php:352
+msgid "Allow Safari to show your site"
+msgstr "⌠3638923⌡Ållòw Såfårî tò shòw yòür sîté⌠3638923⌡"
+
+#: includes/extensions/class-safari-storage-access.php:353
+msgid "When you click on the button below, Safari will ask for permission. Tap \"Allow\" to view your WordPress site."
+msgstr "⌠3638924⌡Whén yòü clîck òn thé büttòn bélòw, Såfårî wîll åsk fòr pérmîssîòn. Tåp \"Ållòw\" tò vîéw yòür WòrdPréss sîté.⌠3638924⌡"
+
+#: includes/extensions/class-safari-storage-access.php:356
+msgid "Step 2/2"
+msgstr "⌠3638925⌡Stép 2/2⌠3638925⌡"
+
+#: includes/extensions/class-safari-storage-access.php:358
+msgid "Allow in Safari"
+msgstr "⌠3638926⌡Ållòw în Såfårî⌠3638926⌡"
+
+#: includes/extensions/class-safari-storage-access.php:369
+msgid "Allowing..."
+msgstr "⌠3638927⌡Ållòwîng...⌠3638927⌡"
+
+#: includes/utils/class-request-validator.php:510
+msgid "Empty Origin"
+msgstr "⌠3638928⌡Émpty Òrîgîn⌠3638928⌡"
+
+#: includes/utils/class-request-validator.php:520
+msgid "Invalid Origin Format"
+msgstr "⌠3638929⌡Învålîd Òrîgîn Fòrmåt⌠3638929⌡"

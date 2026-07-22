@@ -1,0 +1,447 @@
+/* custome-style.css */
+
+
+:root {
+    --primary-color: #621EFF;
+    --secondary-color: #FFFFFF;
+    --gold-yellow: #FBD600;
+    --text-color: #000000;
+    --secondry-text-color: #515151;
+}
+
+
+.font_m>* {
+    font-family: 'Graphik-semibold', sans-serif !important;
+
+}
+
+.Archivo>* {
+    font-family: 'Archivo', sans-serif !important;
+    font-weight: 400;
+}
+
+.Archivo.black>* {
+    font-weight: 900;
+}
+
+.Caveat>* {
+    font-family: 'Caveat', cursive !important;
+    font-weight: 400;
+}
+
+.call-svg svg {
+    color: #621eff;
+
+}
+.call-svg svg path{
+    fill: transparent;
+}
+
+.connect-btn-container a {
+    text-decoration: none !important;
+}
+
+.connect-expert-btn:hover .exper-btn-heading p {
+    color: var(--gold-yellow) !important;
+}
+
+.connect-expert-btn:hover .expert-btn-arrow svg {
+    color: var(--gold-yellow);
+}
+
+.connect-btn-containe:hover svg {
+    fill: transparent;
+}
+
+.connect-follow-btn:hover p {
+    color: var(--gold-yellow) !important;
+}
+
+.connect-follow-btn:hover svg {
+    color: var(--gold-yellow);
+    fill: var(--gold-yellow) !important;
+}
+
+.built-perform-svg svg path {
+    stroke: #FFFFFF;
+}
+
+.built-perform-svg {
+    width: 100%;
+    max-width: fit-content !important;
+}
+.policy-link-tags a{
+    font-weight: 400;
+    position: relative;
+    text-decoration: none !important;
+    z-index: 9;
+  
+}
+.policy-link-tags a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    width: 100%;
+    background-color: #989898;
+    height: 1px;
+    z-index: -10;
+    box-shadow: 0px 1.5px 2px rgba(0, 0, 0, 0.3);
+}
+.policy-link-tags a.active{
+    font-weight: 900;
+}
+
+.policy-link-tags a.active::after{
+    content: none;
+}
+
+.information-collected-section-list-one ul {
+    list-style: none;
+    counter-reset: policy-counter;
+    padding: 0px;
+    margin: 20px 0px;
+}
+.information-collected-section-list-second ul{
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+
+.information-collected-section-list-one ul li{
+    counter-increment: policy-counter;
+    margin-bottom: 20px;
+}
+
+.information-collected-section-list-one ul li:before{
+    content: "(" counter(policy-counter ,lower-alpha) ")";
+    margin-right: 5px;
+    
+}
+.introduction-section p{
+    overflow-wrap: break-word;
+}
+
+@media (max-width:768px){
+.FAQ-Accordion .e-n-accordion .e-n-accordion-item .e-n-accordion-item-title{
+    min-height: 100px;
+
+}
+
+.our-services-grid div{
+  height: 100%;
+  max-height: fit-content;
+}
+}
+.cms-menus-container nav ul li a{
+    text-decoration: underline !important;
+    text-underline-offset: 2px;
+}
+.cms-menus-container nav ul li.current-menu-item >a,
+.cms-menus-container nav ul li.current_page_item >a
+{
+    text-decoration: none !important;
+    font-weight: 500 !important;
+}
+
+/* Top ad banner: make the "Find out now" link green */
+.elementor-element-de78b1b .elementor-heading-title,
+.elementor-element-de78b1b .elementor-heading-title a,
+.elementor-element-de78b1b .elementor-heading-title a:hover {
+    color: #22C55E !important;
+}
+
+/* ===================================================================
+   ElementsKit mega menu panels (Moonbow header)
+   Content is authored as HTML in each panel's text-editor widget;
+   these rules style it on-brand. Panel wrapper = .elementskit-megamenu-panel
+   =================================================================== */
+.elementskit-megamenu-panel .mb-mega {
+    display: flex;
+    gap: 32px;
+    padding: 32px;
+    align-items: stretch;
+    font-family: "Roboto", sans-serif;
+    /* Slightly greyish so the panel stays visually distinct on white inner pages */
+    background: #F4F4F6;
+    border: 1px solid #E4E4EA;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(17, 17, 17, 0.12);
+    overflow: hidden;
+}
+/* Let the .mb-mega box be the visible surface (avoids a white corner peek from
+   ElementsKit's default panel background behind the rounded corners). */
+.elementskit-megamenu-panel {
+    background: transparent !important;
+    border-radius: 12px;
+}
+.mb-mega__cols { display: flex; gap: 48px; flex: 1; }
+.mb-mega__col { display: flex; flex-direction: column; min-width: 220px; }
+.mb-mega__title {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #515151;
+    margin-bottom: 14px;
+}
+.mb-mega__link { display: block; padding: 8px 0; text-decoration: none; }
+.mb-mega__link-title {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: #000000;
+    line-height: 1.35;
+    transition: color .15s ease;
+}
+.mb-mega__link-desc { display: block; font-size: 12.5px; color: #515151; margin-top: 2px; }
+.mb-mega__link:hover .mb-mega__link-title { color: #621EFF; }
+
+.mb-mega__feature {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 260px;
+    padding: 24px;
+    border-radius: 14px;
+    text-decoration: none;
+    background: linear-gradient(150deg, #621EFF 0%, #4a12c8 100%);
+    color: #FFFFFF;
+}
+.mb-mega__feature-eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; opacity: .8; }
+.mb-mega__feature-title { font-size: 20px; font-weight: 600; margin-top: 8px; line-height: 1.2; color: #FFFFFF; }
+.mb-mega__feature-desc { font-size: 13.5px; opacity: .9; margin-top: 8px; }
+.mb-mega__cta { margin-top: 16px; font-weight: 600; color: #FBD600; }
+
+.mb-mega__cards { display: flex; gap: 20px; flex: 1; }
+.mb-mega__card { display: flex; flex-direction: column; flex: 1 1 0; min-width: 0; text-decoration: none; }
+.mb-mega__thumb { height: 110px; border-radius: 12px; margin-bottom: 12px; background: linear-gradient(135deg, #621EFF, #9b6bff); }
+.mb-mega__card--2 .mb-mega__thumb { background: linear-gradient(135deg, #111111, #515151); }
+.mb-mega__card--3 .mb-mega__thumb { background: linear-gradient(135deg, #FBD600, #f59e0b); }
+.mb-mega__card-title { font-size: 14px; font-weight: 500; color: #000000; line-height: 1.35; transition: color .15s ease; }
+.mb-mega__card:hover .mb-mega__card-title { color: #621EFF; }
+.mb-mega__card-cta { font-size: 12.5px; color: #621EFF; margin-top: 8px; font-weight: 600; }
+
+/* DESKTOP: give the panel a fixed width that always fits the viewport; index.js
+   then positions it within the window. Scoped to desktop so it never constrains
+   the mobile off-canvas menu. */
+@media (min-width: 1025px) {
+    .elementskit-navbar-nav .elementskit-megamenu-panel {
+        width: min(920px, calc(100vw - 40px)) !important;
+        min-width: 0 !important;
+        max-width: none !important;
+    }
+}
+
+/* MOBILE / off-canvas (<=1024px): the panel must fill the off-canvas column,
+   not the desktop 920px. Stack the content vertically. */
+@media (max-width: 1024px) {
+    /* Wider off-canvas panel so long menu labels aren't cramped (ElementsKit
+       caps it at 350px by default). */
+    .elementskit-navbar-nav-default.elementskit-menu-container {
+        max-width: min(480px, 92vw) !important;
+    }
+    /* Let long labels wrap instead of getting clipped. */
+    .elementskit-navbar-nav-default .ekit-menu-nav-link,
+    .elementskit-megamenu-panel .mb-mega__title,
+    .elementskit-megamenu-panel .mb-mega__link-title,
+    .elementskit-megamenu-panel .mb-mega__link-desc,
+    .elementskit-megamenu-panel .mb-mega__card-title {
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+    .elementskit-navbar-nav .elementskit-megamenu-panel {
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        left: auto !important;
+        right: auto !important;
+    }
+    .elementskit-megamenu-panel .mb-mega {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        width: auto;
+        max-width: 100%;
+    }
+    .mb-mega__cols { flex-direction: column; gap: 24px; }
+    .mb-mega__col { min-width: 0; }
+    .mb-mega__feature { width: auto; }
+    .mb-mega__cards { flex-wrap: wrap; }
+    .mb-mega__card { flex: 1 1 100%; }
+}
+
+/* ElementsKit nav bar — match the original Moonbow header (white links on the
+   purple bar). Scoped to the desktop horizontal menu; the mobile off-canvas
+   menu keeps its default dark-on-light styling. */
+@media (min-width: 1025px) {
+    .elementskit-navbar-nav > li > .ekit-menu-nav-link {
+        color: #FFFFFF !important;
+        font-family: "Roboto", sans-serif;
+        font-size: 19px;
+        font-weight: 400;
+        letter-spacing: normal;
+    }
+    .elementskit-navbar-nav > li > .ekit-menu-nav-link:hover {
+        color: #FFFFFF !important;
+        opacity: .85;
+    }
+    /* dropdown caret colour on the top-level items */
+    .elementskit-navbar-nav > li > .ekit-menu-dropdown-toggle .ekit-menu-icon,
+    .elementskit-navbar-nav > li > .ekit-menu-nav-link .ekit-menu-icon {
+        color: #FFFFFF;
+        border-color: #FFFFFF;
+    }
+}
+
+/* Mobile hamburger toggle — the ElementsKit default renders the three bars in
+   semi-transparent black, which is barely visible on the purple header. Force
+   them white to match the original design. */
+.elementskit-menu-hamburger .elementskit-menu-hamburger-icon {
+    background-color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   Mobile off-canvas menu — match the original Moonbow design: a black panel
+   that slides in from the RIGHT with white text. ElementsKit's default is a
+   light (#f7f7f7) panel sliding from the left with dark text.
+   Scoped to <=1024px so the desktop horizontal menu is untouched.
+   ========================================================================== */
+@media (max-width: 1024px) {
+    /* Panel: black background, pinned to the right edge, slide via transform
+       (translateX) so the direction is fully under our control regardless of
+       ElementsKit's default left:-100% animation. */
+    .elementskit-navbar-nav-default.elementskit-menu-container {
+        background-color: #000000 !important;
+        background-image: none !important; /* kill ElementsKit's default light gradient */
+        left: auto !important;
+        right: 0 !important;
+        transform: translateX(105%) !important;
+        transition: transform .5s cubic-bezier(0.6, 0.1, 0.68, 0.53) !important;
+    }
+    .elementskit-navbar-nav-default.elementskit-menu-container.active {
+        transform: translateX(0) !important;
+    }
+
+    /* Backdrop overlay: ElementsKit animates its position (transition: all .6s),
+       so on close it slid sideways — a second layer moving opposite the panel.
+       Pin it full-screen and let it only fade, tinted to match the black theme. */
+    .elementskit-menu-overlay.ekit-nav-menu--overlay {
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        background-color: rgba(0, 0, 0, .5) !important;
+        transition: opacity .35s ease, visibility .35s ease !important;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .elementskit-menu-overlay.ekit-nav-menu--overlay.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* The site header logo lives in #masthead alongside the off-canvas and
+       peeks through the top of the panel (overlapping the first item) whenever
+       the page is scrolled to the top. Hide it while the menu is open so the
+       panel stays clean. */
+    #masthead:has(.elementskit-menu-container.active) .elementor-widget-icon.logo {
+        visibility: hidden !important;
+    }
+
+    /* Breathing room at the top of the menu list, below the close-button row. */
+    .elementskit-navbar-nav-default > .elementskit-navbar-nav {
+        padding-top: 40px !important;
+    }
+
+    /* Top-level menu links */
+    .elementskit-navbar-nav-default .ekit-menu-nav-link {
+        color: #FFFFFF !important;
+        font-size: 18px !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Close (X) button — white outline on the black panel */
+    .elementskit-navbar-nav-default .elementskit-menu-close {
+        color: #FFFFFF !important;
+        border-color: rgba(255, 255, 255, .6) !important;
+        background: transparent !important;
+    }
+
+    /* Dropdown caret: white, no circle, centred. The arrow glyph lives in the
+       ::before pseudo, so it (not the <i>) is what we rotate. */
+    .elementskit-navbar-nav-default .elementskit-submenu-indicator {
+        color: #FFFFFF !important;
+        border: none !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 0 !important;
+        width: 34px !important;
+        height: 26px !important;
+        float: right !important;
+    }
+    .elementskit-navbar-nav-default .elementskit-submenu-indicator::before {
+        display: inline-block !important;
+    }
+    /* Some ElementsKit builds (e.g. staging) render the caret as an inline
+       <svg> instead of an icon-font <i>. Without this the width/height above
+       size the actual SVG icon (making it oversized), so constrain it to a
+       small glyph that matches the icon-font size. */
+    .elementskit-navbar-nav-default svg.elementskit-submenu-indicator {
+        width: 13px !important;
+        height: 13px !important;
+    }
+    /* Open state: ElementsKit adds `.elementskit-dropdown-open` to the submenu
+       container (a direct child of the <li>). Flip the caret 180° so the
+       down-arrow becomes an up-arrow. The glyph lives in ::before for the
+       icon-font <i> (local); for the <svg> build (staging) we rotate the
+       element itself. */
+    .elementskit-navbar-nav-default li:has(> .elementskit-dropdown-open) .elementskit-submenu-indicator::before,
+    .elementskit-navbar-nav-default li:has(> .elementskit-dropdown-open) svg.elementskit-submenu-indicator {
+        transform: rotate(180deg) !important;
+    }
+    /* Newer ElementsKit builds render the caret as an inline SVG instead of an
+       icon-font glyph. SVGs ignore `color`, so also set `fill` (and stroke) to
+       white — this keeps the arrow white regardless of ElementsKit's version. */
+    .elementskit-navbar-nav-default .elementskit-submenu-indicator,
+    .elementskit-navbar-nav-default .elementskit-submenu-indicator svg,
+    .elementskit-navbar-nav-default .elementskit-submenu-indicator svg * {
+        fill: #FFFFFF !important;
+        stroke: #FFFFFF !important;
+        color: #FFFFFF !important;
+    }
+
+    /* Sub-menu / mega-menu dropdown content: transparent over the black panel
+       with white text. */
+    .elementskit-navbar-nav-default .elementskit-dropdown,
+    .elementskit-navbar-nav-default .elementskit-submenu-panel,
+    .elementskit-navbar-nav-default .elementskit-megamenu-panel .mb-mega {
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+    .elementskit-navbar-nav-default .dropdown-item {
+        color: #FFFFFF !important;
+    }
+    .elementskit-navbar-nav-default .dropdown-item:hover,
+    .elementskit-navbar-nav-default .dropdown-item:focus {
+        color: #FFFFFF !important;
+        background: rgba(255, 255, 255, .06) !important;
+    }
+    .elementskit-navbar-nav-default .elementskit-megamenu-panel,
+    .elementskit-navbar-nav-default .elementskit-megamenu-panel .mb-mega__title,
+    .elementskit-navbar-nav-default .elementskit-megamenu-panel .mb-mega__link-title,
+    .elementskit-navbar-nav-default .elementskit-megamenu-panel .mb-mega__link-desc,
+    .elementskit-navbar-nav-default .elementskit-megamenu-panel .mb-mega__card-title,
+    .elementskit-navbar-nav-default .elementskit-megamenu-panel a {
+        color: #FFFFFF !important;
+    }
+    .elementskit-navbar-nav-default .elementskit-megamenu-panel .mb-mega__card {
+        background: rgba(255, 255, 255, .08) !important;
+        border-color: rgba(255, 255, 255, .15) !important;
+    }
+}
+
+
+
+

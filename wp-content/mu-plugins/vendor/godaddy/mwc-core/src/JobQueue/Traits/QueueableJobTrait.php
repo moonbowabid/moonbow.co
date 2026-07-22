@@ -1,0 +1,86 @@
+<?php
+
+namespace GoDaddy\WordPress\MWC\Core\JobQueue\Traits;
+
+use GoDaddy\WordPress\MWC\Common\Configuration\Configuration;
+use GoDaddy\WordPress\MWC\Common\Events\Events;
+use GoDaddy\WordPress\MWC\Common\Helpers\TypeHelper;
+use GoDaddy\WordPress\MWC\Core\JobQueue\Contracts\QueueableJobContract;
+use GoDaddy\WordPress\MWC\Core\JobQueue\Events\QueuedJobDoneEvent;
+
+/**
+ * Trait for queueable jobs, to implement common methods in the {@see QueueableJobContract} interface.
+ *
+ * @phpstan-require-implements QueueableJobContract
+ */
+trait QueueableJobTrait
+{
+    /** @var class-string<QueueableJobContract>[] chain of job class names, in the order they should be run */
+    protected array $chain;
+
+    /** @var ?mixed[] optional arguments for the current job; these values may change per job run (example: an offset for a query, a batch of IDs to process, etc.) */
+    protected ?array $args = null;
+
+    /**
+     * Add an array of jobs (class names) to the queue.
+     *
+     * @param class-string<QueueableJobContract>[] $chain
+     * @return $this
+     */
+    public function setChain(array $chain)
+    {
+        $this->chain = $chain;
+
+        return $this;
+    }
+
+    /**
+     * @param ?array<mixed> $args
+     * @return $this
+     */
+    public function setArgs(?array $args = null)
+    {
+        $this->args = $args;
+
+        return $this;
+    }
+
+    /**
+     * Sets the chain to the current job class.
+     *
+     * This is useful for things like batch jobs where an array of items is passed in, and the job needs to be re-queued
+     * until all the items in the array have been processed.
+     *
+     * @return $this
+     */
+    public function reQueueJob()
+    {
+        // Use the config-registered class name so DI-swapped jobs (e.g. V2 overrides) re-queue
+        // under the class name the queue config knows about, not the runtime subclass.
+        $registeredClassName = TypeHelper::string(Configuration::get("queue.jobs.{$this->getJobKey()}.job"), '')
+            ?: get_class($this);
+
+        // @phpstan-ignore assign.propertyType (the trait requires that the class using it implements QueueableJobContract)
+        array_unshift($this->chain, $registeredClassName);
+
+        return $this;
+    }
+
+    /**
+     * Job processed successfully.
+     *
+     * @return void
+     */
+    public function jobDone() : void
+    {
+        Events::broadcast(QueuedJobDoneEvent::getNewInstance($this->chain, $this->args));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getJobKey() : string
+    {
+        return static::JOB_KEY;
+    }
+}

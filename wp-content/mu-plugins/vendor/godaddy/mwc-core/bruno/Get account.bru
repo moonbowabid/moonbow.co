@@ -1,0 +1,11 @@
+meta {
+  name: Get account
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{siteUrl}}/wp-json/godaddy/mwc/v1/account
+  body: none
+  auth: inherit
+}
