@@ -117,6 +117,19 @@ If it ever fails again after a migration: Elementor → Tools → **Regenerate F
 Data** (or search-replace the temp host in
 `wp-content/uploads/elementor/google-fonts/css/*.css`), then purge caches.
 
-**Staging http fonts (informational).** Staging serves the same font CSS over
-`http://` on an HTTPS page (mixed content). Only relevant if you run tests with
-staging as the TARGET.
+**Staging http→https config (resolved 2026-07-22).** Staging previously served the
+Elementor google-fonts CSS (and the favicon) over `http://` on an HTTPS page
+(mixed content, browser-blocked). Root cause: **`siteurl`/`home` were
+`http://staging.moonbow.co`**, so WordPress generated asset URLs from an http base;
+Elementor also **cached the http font URL in the `_elementor_local_google_fonts` DB
+option**, so deleting the physical files didn't help (the enqueue reads the stored
+URL — see `core/files/fonts/google-font.php`). Fix that stuck:
+1. **Settings → General** → set both WordPress Address and Site Address to
+   `https://staging.moonbow.co`.
+2. **Elementor → Tools → Replace URL**: `http://staging.moonbow.co` →
+   `https://staging.moonbow.co` (no trailing slash). This is the only built-in path
+   that calls `Google_Font::clear_cache()` (clears the option + files), so the CSS
+   regenerates with the https base. "Clear Files & Data" alone does **not** clear it.
+3. Purge WP + GoDaddy CDN cache.
+Verified: no `http://` subresources on the staging front end, font files regenerated
+with https `@font-face` URLs. Production was never affected (its siteurl is https).
