@@ -246,7 +246,8 @@ in the hero to match staging. Update + flush cache.
 >   layout, console errors.
 > - ℹ️ Two early false alarms this pass (premium block at 342px, temp-domain fonts)
 >   were **stale GoDaddy CDN cache** — both cleared once the purge propagated.
-> - Mobile (390px) not yet re-verified.
+> - ✅ Mobile (390px, iPhone 13) hero margins re-verified 2026-07-22 —
+>   `layout matches staging` green on all 7 pages.
 
 **Always finish by flushing the WordPress cache and the GoDaddy CDN** after edits.
 

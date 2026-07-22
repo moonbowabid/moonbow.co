@@ -46,7 +46,7 @@ Full page-wise comparison in `STAGING-VS-PROD-CHANGES.md`; verified visually in-
 
 ## 5. 🔄 Deploy the listed changes to production — NEARLY DONE (desktop all green; mobile pending)
 Verified via `html/tests` (desktop 1440px, against the staging baseline):
-- ✅ **Hero spacing (margins) — DONE & VERIFIED (2026-07-22):** Services, AI Suite, Our Work, Careers, Contact us all match staging; About us needed no change. `layout matches staging` green on every page. *(Mobile 390px not yet re-verified.)*
+- ✅ **Hero spacing (margins) — DONE & VERIFIED (2026-07-22):** Services, AI Suite, Our Work, Careers, Contact us all match staging; About us needed no change. `layout matches staging` green on every page — **desktop (1440px) and mobile (390px, iPhone 13)**.
 - ✅ **Scroll-to-Top button (G2) — DONE & VERIFIED (2026-07-22):** now present on all 7 prod pages (`scroll-to-top button present` test green). Enabled via UAE → Widgets + Elementor Site Settings, per §G2.
 - ✅ **Homepage block spacing — DONE & VERIFIED (2026-07-22):**
   - **"Why we exist"** — Min Height reduced 877→577px on prod; now = staging.
@@ -55,10 +55,16 @@ Verified via `html/tests` (desktop 1440px, against the staging baseline):
 - ✅ **Elementor webfonts (G3) — RESOLVED & VERIFIED (2026-07-22):** briefly appeared to reference `6g0.840.myftpupload.com` (CORS-blocked), but that was **stale GoDaddy CDN cache**; after the purge propagated both `roboto.css`/`robotoslab.css` reference `moonbow.co` only. New `no assets loaded from a temp/mirror domain` test green on all 7 pages (kept as a permanent regression guard).
 - ℹ️ **Button URLs** — staging's `1nn.562.myftpupload.com` links were replaced with `staging.moonbow.co` (introduced a `//` double-slash the link-audit test now catches — needs a `moonbow.co//`→`moonbow.co/` cleanup on staging). Production button-domain audit **now run** — passes (no off-domain/mirror button links on prod).
 
-## 6. ⏳ Compare staging → local to catch anything missing — NOT STARTED (some findings already)
-- **`CPT-Jobs` plugin** present on staging + prod but **missing locally / in git** — pull it down and add to the repo.
-- **Local URL fix already done (2026-07-22):** local DB had `1nn.562.myftpupload.com` baked into Elementor links; ran `wp search-replace … → moonbow.local` (2,193 replacements, guid skipped) + cache flush. **Follow-up:** add `1nn.562.myftpupload.com` to `setup-local.sh`'s search-replace so future imports handle it automatically.
-- Otherwise verify local isn't missing anything present on staging (files + relevant config).
+## 6. ✅ Compare staging → local to catch anything missing — DONE (2026-07-22)
+Compared staging's plugin list (WP admin) against the local filesystem and git.
+- ✅ **Custom code parity:** local now has everything staging has, incl. `CPT-Jobs` — the old "missing locally" note was stale; it's present with full content.
+- ✅ **Git gap closed:** 3 plugins existed on staging + local but were **untracked** in the repo (added after the initial commit, not gitignored). Committed in `0f6642f6`:
+  - `CPT-Jobs` (Career Jobs, custom CPT)
+  - `CPT-case-studies` (Case Studies, custom CPT)
+  - `clear-cache-for-widgets` (Clear Cache For Me v2.5)
+- ℹ️ **Staging-only:** `wordpress-importer` (standard WP.org import utility) is on staging but not local — not custom code, not worth pulling down.
+- ℹ️ **Local-only (expected):** `copy-delete-posts` and `wordpress-mcp` are dev/utility plugins, correctly absent from staging.
+- ✅ **`setup-local.sh` already handles the temp domain:** `PRODUCTION_URL="https://1nn.562.myftpupload.com"` and the search-replace step (incl. the `http://` variant) rewrites it to the local URL on import. The earlier manual `wp search-replace … → moonbow.local` (2,193 replacements) was a one-off; future imports are covered automatically.
 
 ---
 
