@@ -46,7 +46,7 @@ Full page-wise comparison in `STAGING-VS-PROD-CHANGES.md`; verified visually in-
 
 ## 5. 🔄 Deploy the listed changes to production — NEARLY DONE (desktop all green; mobile pending)
 Verified via `html/tests` (desktop 1440px, against the staging baseline):
-- ✅ **Hero spacing (margins) — DONE & VERIFIED (2026-07-22):** Services, AI Suite, Our Work, Careers, Contact us all match staging; About us needed no change. `layout matches staging` green on every page — **desktop (1440px) and mobile (390px, iPhone 13)**.
+- ✅ **Hero spacing (margins) — DONE & VERIFIED (2026-07-22):** Services, AI Suite, Our Work, Careers, Contact us all match staging; About us needed no change. `layout matches staging` green on every page — **desktop (1440px) and mobile (390px, iPhone 13)**. Full mobile suite also green (scroll-to-top, button domains, console/asset checks, off-canvas menu).
 - ✅ **Scroll-to-Top button (G2) — DONE & VERIFIED (2026-07-22):** now present on all 7 prod pages (`scroll-to-top button present` test green). Enabled via UAE → Widgets + Elementor Site Settings, per §G2.
 - ✅ **Homepage block spacing — DONE & VERIFIED (2026-07-22):**
   - **"Why we exist"** — Min Height reduced 877→577px on prod; now = staging.
