@@ -1,0 +1,14 @@
+{
+  "name": "moonbow-qa",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright verification suite: production vs staging after a deploy.",
+  "scripts": {
+    "test": "playwright test",
+    "report": "playwright show-report",
+    "shots": "playwright test --grep @screenshot"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}
