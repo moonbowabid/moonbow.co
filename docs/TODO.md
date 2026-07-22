@@ -44,12 +44,16 @@ Full page-wise comparison in `STAGING-VS-PROD-CHANGES.md`; verified visually in-
 
 **Cross-finding → Task 6:** the `CPT-Jobs` plugin runs on both live sites but is **missing locally** (so it was absent from the Task 1 push too).
 
-## 5. 🔄 Deploy the listed changes to production — IN PROGRESS
+## 5. 🔄 Deploy the listed changes to production — NEARLY DONE (desktop all green; mobile pending)
 Verified via `html/tests` (desktop 1440px, against the staging baseline):
 - ✅ **Hero spacing (margins) — DONE & VERIFIED (2026-07-22):** Services, AI Suite, Our Work, Careers, Contact us all match staging; About us needed no change. `layout matches staging` green on every page. *(Mobile 390px not yet re-verified.)*
-- ⏳ **Scroll-to-Top button (G2)** — not enabled on prod yet (its own test is red). Verified enable steps in `STAGING-VS-PROD-CHANGES.md` §G2 (UAE → Widgets → enable extension; Elementor Site Settings → Scroll to Top = Yes; then Regenerate Files & Data + purge all caches — the cache purge is the step that makes it appear on every page, not just the homepage).
-- ⏳ **Homepage block spacing** — re-reviewed 2026-07-22: reduce "Why we exist" section Min Height 877→577px (−300px) and set "premium platform partners" section Min Height 550px (−85px). "What we do"/"HUMAN" +90px is content-render, no action. Not yet applied on prod (see `STAGING-VS-PROD-CHANGES.md` § Home).
-- ℹ️ **Button URLs** — staging's `1nn.562.myftpupload.com` links were replaced with `staging.moonbow.co` (introduced a `//` double-slash the link-audit test now catches — needs a `moonbow.co//`→`moonbow.co/` cleanup on staging). **Production button-domain audit not yet run.**
+- ✅ **Scroll-to-Top button (G2) — DONE & VERIFIED (2026-07-22):** now present on all 7 prod pages (`scroll-to-top button present` test green). Enabled via UAE → Widgets + Elementor Site Settings, per §G2.
+- ✅ **Homepage block spacing — DONE & VERIFIED (2026-07-22):**
+  - **"Why we exist"** — Min Height reduced 877→577px on prod; now = staging.
+  - **"Premium platform partners"** — Min Height set to 550px on prod; now = staging. (An earlier 342px reading was stale CDN cache before the edit propagated.)
+  - Both block-spacing tests green. ℹ️ "What we do"/"HUMAN" +90px is content-render, no action.
+- ✅ **Elementor webfonts (G3) — RESOLVED & VERIFIED (2026-07-22):** briefly appeared to reference `6g0.840.myftpupload.com` (CORS-blocked), but that was **stale GoDaddy CDN cache**; after the purge propagated both `roboto.css`/`robotoslab.css` reference `moonbow.co` only. New `no assets loaded from a temp/mirror domain` test green on all 7 pages (kept as a permanent regression guard).
+- ℹ️ **Button URLs** — staging's `1nn.562.myftpupload.com` links were replaced with `staging.moonbow.co` (introduced a `//` double-slash the link-audit test now catches — needs a `moonbow.co//`→`moonbow.co/` cleanup on staging). Production button-domain audit **now run** — passes (no off-domain/mirror button links on prod).
 
 ## 6. ⏳ Compare staging → local to catch anything missing — NOT STARTED (some findings already)
 - **`CPT-Jobs` plugin** present on staging + prod but **missing locally / in git** — pull it down and add to the repo.

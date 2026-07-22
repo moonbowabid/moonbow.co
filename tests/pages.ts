@@ -162,3 +162,14 @@ const THIRD_PARTY = /google|gstatic|recaptcha|gtag|facebook|doubleclick|hotjar|c
 export function isOurFailure(url: string): boolean {
   return /moonbow\.co/i.test(url) && !THIRD_PARTY.test(url);
 }
+
+/** True if a console message's *text* is about a third-party/mirror resource we
+ *  don't control (e.g. a CORS font block from a GoDaddy temp domain). Such
+ *  messages are reported by the dedicated mirror-asset test, not here, so the
+ *  "no console errors" test stays focused on genuine first-party JS errors. */
+export function mentionsThirdParty(text: string): boolean {
+  return THIRD_PARTY.test(text);
+}
+
+/** A GoDaddy temp/mirror host that no production asset should ever be loaded from. */
+export const MIRROR_HOST = /myftpupload\.com/i;

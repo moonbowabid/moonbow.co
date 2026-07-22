@@ -10,6 +10,8 @@ import {
   hasScrollToTop,
   settle,
   isOurFailure,
+  mentionsThirdParty,
+  MIRROR_HOST,
   auditLinks,
 } from './pages';
 
@@ -92,8 +94,19 @@ for (const spec of PAGES) {
       const consoleErrors: string[] = [];
       const badResponses: string[] = [];
       page.on('console', (m) => {
-        if (m.type() === 'error' && isOurFailure(m.location().url || TARGET)) {
-          consoleErrors.push(m.text());
+        // genuine first-party JS errors only. Excluded:
+        //  - third-party / mirror-domain noise (e.g. CORS font blocks) → mirror-asset test
+        //  - generic "Failed to load resource" (no URL, and often a transient
+        //    cross-origin / CDN-warm 404) → the response-status check below catches
+        //    real on-domain broken assets, with the actual URL.
+        const text = m.text();
+        if (
+          m.type() === 'error' &&
+          isOurFailure(m.location().url || TARGET) &&
+          !mentionsThirdParty(text) &&
+          !/failed to load resource/i.test(text)
+        ) {
+          consoleErrors.push(text);
         }
       });
       page.on('response', (r) => {
@@ -107,6 +120,48 @@ for (const spec of PAGES) {
 
       expect(consoleErrors, `console errors: ${consoleErrors.join(' ; ') || 'none'}`).toHaveLength(0);
       expect(badResponses, `broken requests: ${badResponses.join(' ; ') || 'none'}`).toHaveLength(0);
+    });
+
+    // No production asset (font, css, image, script) may reference a GoDaddy
+    // temp/mirror domain. Elementor bakes the temp host into generated font CSS,
+    // which then CORS-fails on the real domain — regenerate Files & Data to fix.
+    // Two signals: (a) any request observed to a mirror host, and (b) a mirror URL
+    // baked into a same-origin stylesheet (deterministic — not cache-dependent).
+    test('no assets loaded from a temp/mirror domain', async ({ page }) => {
+      const requested = new Set<string>();
+      page.on('request', (req) => {
+        if (MIRROR_HOST.test(req.url())) requested.add(req.url());
+      });
+
+      await page.goto(TARGET + spec.path, { waitUntil: 'commit' });
+      await settle(page);
+
+      // Scan the content of every same-origin stylesheet (e.g. Elementor's
+      // google-fonts CSS) for a baked-in mirror-domain URL. This catches the
+      // font-CORS issue even when the .woff2 was served from cache.
+      const cssRefs: string[] = await page.evaluate(async () => {
+        const links = Array.from(
+          document.querySelectorAll('link[rel="stylesheet"]'),
+        ) as HTMLLinkElement[];
+        const sameOrigin = links.filter((l) => {
+          try { return new URL(l.href).host === location.host; } catch { return false; }
+        });
+        const hits: string[] = [];
+        for (const l of sameOrigin) {
+          try {
+            const css = await fetch(l.href).then((r) => r.text());
+            const m = css.match(/https?:\/\/[^/"')]*myftpupload\.com[^"')]*/gi);
+            if (m) hits.push(`${l.href} → ${[...new Set(m)].join(', ')}`);
+          } catch { /* ignore unreadable sheets */ }
+        }
+        return hits;
+      });
+
+      const offenders = [...new Set([...requested, ...cssRefs])];
+      expect(
+        offenders,
+        `temp/mirror-domain references (must be 0): ${offenders.join(' ; ') || 'none'}`,
+      ).toHaveLength(0);
     });
 
     test('capture screenshots @screenshot', async ({ page }, testInfo) => {

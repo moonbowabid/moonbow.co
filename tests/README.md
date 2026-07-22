@@ -15,6 +15,10 @@ Checks the changes in `../docs/STAGING-VS-PROD-CHANGES.md`:
   ignored** — production's lowercase is the correct version).
 - **No regressions** — no console errors or broken (4xx/5xx) requests on the
   site's own assets; third-party noise (maps, recaptcha, analytics) is ignored.
+- **No temp/mirror-domain assets** — no request (font, CSS, image, script) is
+  loaded from a GoDaddy `*.myftpupload.com` host.
+- **Home block spacing** — the "Why we exist" and "premium platform partners"
+  home blocks match staging's height (desktop only).
 - **Mobile menu** — the hamburger still opens the off-canvas panel.
 - **Screenshots** — full-page captures of target + staging for every page.
 
@@ -101,9 +105,18 @@ TARGET=https://www.moonbow.co BASELINE=https://staging.moonbow.co npm test
 
 ---
 
-## Known finding (2026-07-22)
-Staging serves the Elementor Google-Fonts CSS (`roboto.css`, `robotoslab.css`)
-over **`http://`** on an HTTPS page, so the browser blocks them (mixed content).
-The "no console errors" test surfaces this. Ensure production's font URLs are
-**https** after deploy (Elementor → Tools → Regenerate Files & Data, and/or a
-DB search-replace of `http://…/uploads/elementor/google-fonts` → `https://…`).
+## Known findings (2026-07-22)
+
+**Webfonts from a temp domain (resolved 2026-07-22, guarded).** Prod's Elementor
+Google-Fonts CSS (`roboto.css`, `robotoslab.css`) briefly referenced font files on
+`6g0.840.myftpupload.com` (CORS-blocked, fonts fell back) — but that was **stale
+GoDaddy CDN cache**; after the purge propagated both files reference `moonbow.co`.
+The **`no assets loaded from a temp/mirror domain`** test guards against this
+recurring (it scans same-origin stylesheet content, so it's not cache-dependent).
+If it ever fails again after a migration: Elementor → Tools → **Regenerate Files &
+Data** (or search-replace the temp host in
+`wp-content/uploads/elementor/google-fonts/css/*.css`), then purge caches.
+
+**Staging http fonts (informational).** Staging serves the same font CSS over
+`http://` on an HTTPS page (mixed content). Only relevant if you run tests with
+staging as the TARGET.
