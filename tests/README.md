@@ -6,7 +6,7 @@ page by page, at **desktop (1440px)** and **mobile (iPhone 13 / 390px)**.
 Lives at `html/tests/` and is tracked in the same repo as the site code. It is a
 dev-only tool — it is never loaded by WordPress.
 
-Checks the changes in `STAGING-VS-PROD-CHANGES.md` (project root, two levels up):
+Checks the changes in `../docs/STAGING-VS-PROD-CHANGES.md`:
 
 - **Scroll-to-top button** — the HFE `.hfe-scroll-to-top-wrap` is present.
 - **Hero spacing** — each interior hero (Services, AI Suite, Our Work, Careers,
