@@ -66,8 +66,33 @@ Compared staging's plugin list (WP admin) against the local filesystem and git.
 - ℹ️ **Local-only (expected):** `copy-delete-posts` and `wordpress-mcp` are dev/utility plugins, correctly absent from staging.
 - ✅ **`setup-local.sh` already handles the temp domain:** `PRODUCTION_URL="https://1nn.562.myftpupload.com"` and the search-replace step (incl. the `http://` variant) rewrites it to the local URL on import. The earlier manual `wp search-replace … → moonbow.local` (2,193 replacements) was a one-off; future imports are covered automatically.
 
+## 7. ⏳ Deep pixel audit — remaining 6 pages — NOT STARTED (pick up 2026-07-23)
+Home is **done**: fully audited with `tools/pixel-diff/`, 3 container diffs deployed to
+prod (`4e70c1a` margin-top 90px, `b5638ff` min-height 144px, `d08a64f` margin top −64px
+only), verified green by Playwright `deep pixel audit` + cache-busted `css-diff.py`
+(commits `a8c378cd`, `c69562bd`). Premium-partners section is rebuilt but renders
+identically — no action.
+
+**Next: run the same audit on the other 6 pages** (staging = design target):
+```bash
+python3 html/tools/pixel-diff/css-diff.py /services/ /ai-suite/ /our-work/ /careers/ /contact-us/ /about-us/
+```
+For each page:
+1. Read the **REAL** (deploy-worthy) and **VAR-only** (usually real spacing) buckets;
+   ignore no-effect vars (`--min-height:0` vs unset, `--border-radius:0 0 0 0` vs unset).
+2. **STRUCTURAL** hashes = a rebuilt/added/removed element → verify with
+   `tools/pixel-diff/extract.js` (`pdSection`, `pdForceLoadImages`) before assuming a diff.
+3. Log findings per page in `STAGING-VS-PROD-CHANGES.md`, apply on prod (Elementor),
+   add a parity test (`HOME_ELEMENT_PARITY` pattern in `tests/`), flush WP + Cloudflare.
+
+**Reminders (see [[pixel-diff-tooling]] memory):** prod is behind **Cloudflare at apex
+`moonbow.co`** (www 301s to apex); always cache-bust; watch the lazy-load 0×0 image trap;
+after any prod edit, cache propagation can take a minute (Playwright may read stale edge
+while `css-diff.py` reads fresh — re-run after flush).
+
 ---
 
 ## Notes
 - This file and `STAGING-VS-PROD-CHANGES.md` live in **`html/docs/`** and are tracked in the repo.
 - Always finish a production change by flushing WP + the GoDaddy CDN cache.
+- `html/tools/pixel-diff/` — reusable staging↔prod styling diff (Task 4–7). See its README.
