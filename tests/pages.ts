@@ -84,6 +84,38 @@ export async function hasScrollToTop(page: Page): Promise<boolean> {
   return (await page.locator('.hfe-scroll-to-top-wrap').count()) > 0;
 }
 
+/**
+ * Home container-level settings prod must match staging on, from the deep pixel
+ * audit (STAGING-VS-PROD-CHANGES.md § Home). These are shared Elementor elements
+ * (same hash on both sites) whose layout var differs; compared as live COMPUTED
+ * styles so the assertion reflects what actually renders. Found via
+ * `tools/pixel-diff/css-diff.py`.
+ */
+const MARGINS = ['marginTop', 'marginRight', 'marginBottom', 'marginLeft'];
+export const HOME_ELEMENT_PARITY = [
+  // All four margin sides checked — a value applied to the wrong side (e.g. -64px
+  // linked across all sides instead of top only) must not slip through.
+  { hash: '4e70c1a', props: MARGINS, label: '"Why we exist" margins (target top 90px)' },
+  { hash: 'b5638ff', props: ['minHeight'], label: '"Who we work with" min-height (target 144px)' },
+  { hash: 'd08a64f', props: MARGINS, label: '"HUMAN" margins (target top -64px only)' },
+];
+
+/** Computed values of several style props of an Elementor element by hash. */
+export async function computedProps(
+  page: Page,
+  hash: string,
+  props: string[],
+): Promise<Record<string, string> | null> {
+  return page.evaluate(({ hash, props }) => {
+    const el = document.querySelector('.elementor-element-' + hash) as HTMLElement | null;
+    if (!el) return null;
+    const cs = getComputedStyle(el) as unknown as Record<string, string>;
+    const out: Record<string, string> = {};
+    for (const p of props) out[p] = cs[p] || '';
+    return out;
+  }, { hash, props });
+}
+
 /** Wait for the page + Elementor lazy sections to settle. */
 export async function settle(page: Page): Promise<void> {
   await page.waitForLoadState('domcontentloaded');

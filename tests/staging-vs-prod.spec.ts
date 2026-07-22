@@ -4,9 +4,11 @@ import {
   PAGES,
   EXPECTED_NAV,
   HOME_BLOCKS,
+  HOME_ELEMENT_PARITY,
   navLabels,
   heroTop,
   sectionHeight,
+  computedProps,
   hasScrollToTop,
   settle,
   isOurFailure,
@@ -207,6 +209,41 @@ test.describe('Home block spacing  (/)', () => {
         Math.abs(targetH - baseH),
         `"${blk.label}" height: target=${targetH}px vs staging=${baseH}px (should match)`,
       ).toBeLessThanOrEqual(12);
+    });
+  }
+});
+
+/**
+ * Home element-level pixel parity — the deep-audit differences (container margins /
+ * min-height) that block-height checks miss. Compares each element's live computed
+ * style on production against staging (the design target). Fails until the three
+ * Elementor edits are deployed, then guards against regression.
+ * Desktop only: the values were measured at 1440px.
+ */
+test.describe('Home element parity  (deep pixel audit)', () => {
+  for (const el of HOME_ELEMENT_PARITY) {
+    test(`${el.label} matches staging`, async ({ page }, testInfo) => {
+      test.skip(testInfo.project.name !== 'desktop', 'measured at desktop 1440px only');
+
+      await page.goto(TARGET + '/', { waitUntil: 'commit' });
+      await settle(page);
+      const targetV = await computedProps(page, el.hash, el.props);
+      expect(targetV, `element ${el.hash} found on target`).not.toBeNull();
+
+      const basePage = await page.context().newPage(); // inherits desktop emulation
+      await basePage.goto(BASELINE + '/', { waitUntil: 'commit' });
+      await settle(basePage);
+      const baseV = await computedProps(basePage, el.hash, el.props);
+      await basePage.close();
+
+      expect(baseV, `element ${el.hash} found on staging`).not.toBeNull();
+      const num = (s: string) => parseFloat(s) || 0;
+      for (const p of el.props) {
+        expect(
+          Math.abs(num(targetV![p]) - num(baseV![p])),
+          `${el.label} · ${p}: target=${targetV![p]} vs staging=${baseV![p]} (should match)`,
+        ).toBeLessThanOrEqual(1);
+      }
     });
   }
 });
