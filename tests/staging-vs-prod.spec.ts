@@ -3,8 +3,10 @@ import { TARGET, BASELINE } from './playwright.config';
 import {
   PAGES,
   EXPECTED_NAV,
+  HOME_BLOCKS,
   navLabels,
   heroTop,
+  sectionHeight,
   hasScrollToTop,
   settle,
   isOurFailure,
@@ -121,6 +123,38 @@ for (const spec of PAGES) {
     });
   });
 }
+
+/**
+ * Home-page block spacing — production must match staging on the deliberate
+ * per-block heights (STAGING-VS-PROD-CHANGES.md § Home). The main loop skips the
+ * hero-offset check for Home (skipHeroOffset), so these blocks are checked here.
+ * Desktop only: the measurements were taken at 1440px and mobile min-heights
+ * reflow (add mobile once measured).
+ */
+test.describe('Home block spacing  (/)', () => {
+  for (const blk of HOME_BLOCKS) {
+    test(`"${blk.label}" block height matches staging`, async ({ page }, testInfo) => {
+      test.skip(testInfo.project.name !== 'desktop', 'measured at desktop 1440px only');
+
+      await page.goto(TARGET + '/', { waitUntil: 'commit' });
+      await settle(page);
+      const targetH = await sectionHeight(page, blk.heading);
+      expect(targetH, `"${blk.label}" section located on target`).toBeGreaterThan(0);
+
+      const basePage = await page.context().newPage(); // inherits desktop emulation
+      await basePage.goto(BASELINE + '/', { waitUntil: 'commit' });
+      await settle(basePage);
+      const baseH = await sectionHeight(basePage, blk.heading);
+      await basePage.close();
+
+      expect(baseH, `"${blk.label}" located on staging baseline`).toBeGreaterThan(0);
+      expect(
+        Math.abs(targetH - baseH),
+        `"${blk.label}" height: target=${targetH}px vs staging=${baseH}px (should match)`,
+      ).toBeLessThanOrEqual(12);
+    });
+  }
+});
 
 /** Mobile-only smoke: the off-canvas menu still opens (guards the mobile work). */
 test.describe('Mobile off-canvas menu', () => {

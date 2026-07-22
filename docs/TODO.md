@@ -33,7 +33,7 @@ Full page-wise comparison in `STAGING-VS-PROD-CHANGES.md`; verified visually in-
 **Verified front-end differences (staging vs prod):**
 1. **Hero top spacer** — interior pages (Services, AI Suite, Our Work, Careers, Contact us) had a ~58–90px larger top spacer on prod. → deploy (see Task 5, now done).
 2. **Scroll-to-Top button** — enabled on staging only (HFE/UAE extension). → deploy (Task 5, pending).
-3. **Homepage** — a *different* Elementor page (staging `9628` vs prod `9172`) and **diverged**: prod home has a script "for" word + hero background image that staging lacks. → deferred; confirm intent before promoting.
+3. **Homepage block spacing** — the two home pages have **converged in structure** (same 10 sections, same Elementor IDs; the earlier "different page 9628/9172 + missing *for* word" note is stale). But prod renders two blocks **taller** than staging: **"Why we exist"** (section min-height 877px vs 577px, **+300px**) and **"We are premium platform partners"** (staging pins 550px min-height, prod grows to 635px, **+85px**). "What we do"/"HUMAN" are ~+90px but from content-render, not a spacing setting. → see `STAGING-VS-PROD-CHANGES.md` § Home; pending on prod.
 
 **Explicitly NOT changes:**
 - **Nav label casing** — production's lowercase `AI suite` / `Our work` is CORRECT; staging's Title Case is the mistake. Do not carry it over.
@@ -48,7 +48,7 @@ Full page-wise comparison in `STAGING-VS-PROD-CHANGES.md`; verified visually in-
 Verified via `html/tests` (desktop 1440px, against the staging baseline):
 - ✅ **Hero spacing (margins) — DONE & VERIFIED (2026-07-22):** Services, AI Suite, Our Work, Careers, Contact us all match staging; About us needed no change. `layout matches staging` green on every page. *(Mobile 390px not yet re-verified.)*
 - ⏳ **Scroll-to-Top button (G2)** — not enabled on prod yet (its own test is red). Verified enable steps in `STAGING-VS-PROD-CHANGES.md` §G2 (UAE → Widgets → enable extension; Elementor Site Settings → Scroll to Top = Yes; then Regenerate Files & Data + purge all caches — the cache purge is the step that makes it appear on every page, not just the homepage).
-- ⏭️ **Homepage (page 9628)** — intentionally deferred.
+- ⏳ **Homepage block spacing** — re-reviewed 2026-07-22: reduce "Why we exist" section Min Height 877→577px (−300px) and set "premium platform partners" section Min Height 550px (−85px). "What we do"/"HUMAN" +90px is content-render, no action. Not yet applied on prod (see `STAGING-VS-PROD-CHANGES.md` § Home).
 - ℹ️ **Button URLs** — staging's `1nn.562.myftpupload.com` links were replaced with `staging.moonbow.co` (introduced a `//` double-slash the link-audit test now catches — needs a `moonbow.co//`→`moonbow.co/` cleanup on staging). **Production button-domain audit not yet run.**
 
 ## 6. ⏳ Compare staging → local to catch anything missing — NOT STARTED (some findings already)

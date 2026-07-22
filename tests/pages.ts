@@ -53,6 +53,32 @@ export async function heroTop(page: Page, source: string): Promise<number> {
   }, source);
 }
 
+/**
+ * Home-page blocks whose vertical size is a deliberate spacing setting that
+ * production must match staging on (see STAGING-VS-PROD-CHANGES.md § Home).
+ * "What we do" / "HUMAN" are intentionally NOT here — their ~90px difference is
+ * content/font render, not a spacing setting, so asserting on them would be flaky.
+ */
+export const HOME_BLOCKS = [
+  { label: 'Why we exist',              heading: 'Why we exist' },
+  { label: 'Premium platform partners', heading: 'We are premium platform partners' },
+];
+
+/** Rendered height (px) of the top-level Elementor section whose text contains
+ *  `heading`, or -1 if not found. Matches the "Why we exist" min-height regression. */
+export async function sectionHeight(page: Page, heading: string): Promise<number> {
+  return page.evaluate((h) => {
+    const rx = new RegExp(h, 'i');
+    const all = Array.from(
+      document.querySelectorAll('.elementor-section, .e-con'),
+    ) as HTMLElement[];
+    // top-level sections only (not nested containers)
+    const top = all.filter((el) => !el.parentElement?.closest('.elementor-section, .e-con'));
+    const sec = top.find((el) => rx.test((el.textContent ?? '').replace(/\s+/g, ' ')));
+    return sec ? Math.round(sec.getBoundingClientRect().height) : -1;
+  }, heading);
+}
+
 /** True if the Header-Footer-Elementor scroll-to-top element is present (G2). */
 export async function hasScrollToTop(page: Page): Promise<boolean> {
   return (await page.locator('.hfe-scroll-to-top-wrap').count()) > 0;
