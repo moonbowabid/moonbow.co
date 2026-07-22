@@ -949,8 +949,8 @@ header .main-navigation-header {
 }
 
 .Ai-text {
-    color: var(--secondary-color);
-    -webkit-text-stroke: 8px var(--primary-color) !important;
+    color: var(--secondary-color) !important;
+    -webkit-text-stroke: 8px #f3bafd !important;
 }
 
 .human-ai-section-steps {
