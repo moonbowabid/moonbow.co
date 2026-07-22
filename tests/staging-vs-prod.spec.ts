@@ -8,6 +8,7 @@ import {
   hasScrollToTop,
   settle,
   isOurFailure,
+  auditLinks,
 } from './pages';
 
 /**
@@ -20,6 +21,8 @@ import {
  */
 for (const spec of PAGES) {
   test.describe(`${spec.name}  (${spec.path})`, () => {
+    // Hero spacing (the margin/spacer edit) + nav presence. Kept independent of
+    // the scroll-to-top check below so a margin verdict is never masked by it.
     test('layout matches staging', async ({ page }) => {
       await page.goto(TARGET + spec.path, { waitUntil: 'commit' });
       await settle(page);
@@ -31,9 +34,6 @@ for (const spec of PAGES) {
       for (const want of EXPECTED_NAV) {
         expect(labels, `nav labels rendered: [${labels.join(' | ')}]`).toContain(want.toLowerCase());
       }
-
-      // G2 — scroll-to-top button present
-      expect(await hasScrollToTop(page), 'HFE scroll-to-top button present').toBeTruthy();
 
       // Hero vertical position must match staging (the spacer edit)
       if (spec.heroText && !spec.skipHeroOffset) {
@@ -52,6 +52,38 @@ for (const spec of PAGES) {
           `hero top: target=${targetTop}px vs staging=${baseTop}px (should match)`,
         ).toBeLessThanOrEqual(12);
       }
+    });
+
+    // G2 — scroll-to-top button (separate so it doesn't mask the layout verdict)
+    test('scroll-to-top button present', async ({ page }) => {
+      await page.goto(TARGET + spec.path, { waitUntil: 'commit' });
+      await settle(page);
+      expect(await hasScrollToTop(page), 'HFE scroll-to-top button present').toBeTruthy();
+    });
+
+    test('buttons/links use the main site domain', async ({ page }) => {
+      await page.goto(TARGET + spec.path, { waitUntil: 'commit' });
+      await settle(page);
+      const audit = await auditLinks(page);
+
+      // (a) no link anywhere may point at a GoDaddy temp/mirror domain
+      expect(
+        audit.mirror,
+        `links to a temp/mirror domain (must be 0): ${audit.mirror.map((m) => `"${m.text}"→${m.host}`).join(' | ') || 'none'}`,
+      ).toHaveLength(0);
+
+      // (b) every Elementor button must resolve to the site's own domain
+      //     (audit.loc) — relative links and allowed externals are fine
+      expect(
+        audit.offDomainButtons,
+        `buttons not on ${audit.loc} (must be 0): ${audit.offDomainButtons.map((m) => `"${m.text}"→${m.host}`).join(' | ') || 'none'}`,
+      ).toHaveLength(0);
+
+      // (c) no on-site link may have a malformed // path (URL-replace artifact)
+      expect(
+        audit.malformed,
+        `on-site links with a malformed "//" path (must be 0): ${audit.malformed.map((m) => m.href).join(' | ') || 'none'}`,
+      ).toHaveLength(0);
     });
 
     test('no console errors or broken assets', async ({ page }) => {

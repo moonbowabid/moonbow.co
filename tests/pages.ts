@@ -65,6 +65,67 @@ export async function settle(page: Page): Promise<void> {
   await page.waitForTimeout(1200); // ElementsKit / lazy sections
 }
 
+/** External domains an on-site button is legitimately allowed to link to. */
+export const EXTERNAL_ALLOW = [
+  'linkedin.com', 'facebook.com', 'instagram.com',
+  'twitter.com', 'x.com', 'youtube.com',
+];
+
+export interface LinkAudit {
+  /** the site's own host (www. stripped), determined at runtime */
+  loc: string;
+  anchorCount: number;
+  buttonCount: number;
+  /** any link pointing at a GoDaddy temp/mirror domain — never valid */
+  mirror: { text: string; href: string; host: string }[];
+  /** buttons whose absolute host is neither the site host nor an allowed external */
+  offDomainButtons: { text: string; href: string; host: string }[];
+  /** on-site links whose path has a malformed double slash (e.g. from a
+   *  trailing-slash mismatch during a URL search-replace) */
+  malformed: { text: string; href: string; host: string }[];
+}
+
+/**
+ * Audit every anchor on the current page. Flags links to a temp/mirror domain
+ * (`*.myftpupload.com`) and Elementor buttons that don't resolve to the site's
+ * own domain. Uses the live `location.host`, so it self-adapts to staging/prod
+ * and tolerates www / non-www.
+ */
+export async function auditLinks(page: Page, allow: string[] = EXTERNAL_ALLOW): Promise<LinkAudit> {
+  return page.evaluate((allowList) => {
+    const norm = (h: string) => h.replace(/^www\./, '');
+    const loc = norm(location.host);
+    const isMirror = (h: string) => /(^|\.)myftpupload\.com$/i.test(h);
+    const btnSel =
+      'a.elementor-button, .elementor-button-wrapper a, .elementor-widget-button a, a.elementor-button-link, .elementor-cta__button';
+    const buttons = new Set<Element>(Array.from(document.querySelectorAll(btnSel)));
+    const anchors = Array.from(document.querySelectorAll('a[href]')) as HTMLAnchorElement[];
+    const mirror: { text: string; href: string; host: string }[] = [];
+    const offDomainButtons: { text: string; href: string; host: string }[] = [];
+    const malformed: { text: string; href: string; host: string }[] = [];
+    for (const a of anchors) {
+      const raw = a.getAttribute('href') || '';
+      if (/^(#|mailto:|tel:|javascript:)/i.test(raw)) continue;
+      let url: URL;
+      try { url = new URL(a.href, location.href); } catch { continue; }
+      const host = url.host;
+      const text = (a.textContent || '').trim().slice(0, 40);
+      if (isMirror(host)) mirror.push({ text, href: a.href, host });
+      // double slash in an on-site path (e.g. //ai-suite/) — URL-replace artifact
+      if (norm(host) === loc && url.pathname.includes('//')) {
+        malformed.push({ text, href: a.href, host });
+      }
+      if (buttons.has(a)) {
+        const relative = !/^https?:/i.test(raw);              // relative => same site
+        const sameHost = norm(host) === loc;
+        const external = allowList.some((d) => norm(host) === d || norm(host).endsWith('.' + d));
+        if (!relative && !sameHost && !external) offDomainButtons.push({ text, href: a.href, host });
+      }
+    }
+    return { loc, anchorCount: anchors.length, buttonCount: buttons.size, mirror, offDomainButtons, malformed };
+  }, allow);
+}
+
 /**
  * Ignore third-party console/network noise we don't control (maps, recaptcha,
  * analytics, fonts, etc.) so a real regression on the site's own assets isn't
