@@ -4,7 +4,7 @@ Description: Theme of Moobow
 Author: Ewall
 Author URI: -
 Author Email: -
-Version: 1.1.8
+Version: 1.1.9
 Text Domain: hello-elementor-child
 Template: hello-elementor
 */
@@ -1294,11 +1294,11 @@ header .main-navigation-header {
     color: var(--secondary-color);
     border-style: solid;
     border-width: 2px 2px 04px 2px;
-    border-color: #621EFF;
-    border-top-color: rgb(98, 30, 255);
-    border-right-color: rgb(98, 30, 255);
-    border-bottom-color: rgb(98, 30, 255);
-    border-left-color: rgb(98, 30, 255);
+    border-color: #ffffff;
+    border-top-color: rgb(255, 255, 255);
+    border-right-color: rgb(255, 255, 255);
+    border-bottom-color: rgb(255, 255, 255);
+    border-left-color: rgb(255, 255, 255);
     border-radius: 0px 0px 0px 0px;
     padding: 5px 25px 5px 25px;
     position: relative;
