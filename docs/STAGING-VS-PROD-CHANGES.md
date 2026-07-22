@@ -117,13 +117,14 @@ checks exactly this, across all pages).
 ## Home — `/`  ✅ block spacing done & verified
 
 > **Re-reviewed 2026-07-22 (browser DOM measurement, 1440px desktop).** The two
-> home pages have since **converged structurally** — same 10 top-level sections,
-> in the same order, with the **same Elementor element IDs** (the earlier
-> "different page 9628 vs 9172 / missing *for* word / missing hero image" finding
-> is now stale; both heros render "The digital media agency *for* RETAIL"). What
-> remains are **block height / spacing differences**: production renders several
-> blocks **taller** than staging. Staging is the target, so production needs
-> these reduced. Measured section heights (prod − staging):
+> home pages have since **converged structurally** — same 10 top-level sections in
+> the same order, sharing ~260 identical Elementor element IDs (the earlier
+> "missing *for* word / missing hero image" finding is stale; both heros render
+> "The digital media agency *for* RETAIL"). They are still separate Elementor
+> **documents** (staging post 9628 vs prod 9172) and the **"premium platform
+> partners" section is rebuilt** with new element instances on each side — see the
+> **Deep pixel audit** below for the exact remaining differences. First pass, by
+> block height (prod − staging):
 
 | # | Block (heading) | Section id | staging h | prod h | Δ | Cause |
 |---|---|---|---|---|---|---|
@@ -151,6 +152,43 @@ Sections 0, 1 (hero), 4, 6, 8, 9 match to the pixel.
 > ℹ️ **Note:** both home-block fixes are now live and verified against staging.
 > "What we do" / "HUMAN" remain ~90px taller on prod, but that is content/font
 > render (no spacing setting differs) — left as-is by design.
+
+### Deep pixel audit — 2026-07-22 (`tools/pixel-diff/css-diff.py` + computed styles)
+
+The block-height pass above only catches size changes. A full **CSS-rule diff** of
+the generated Elementor CSS (borders, radius, shadow, colour, per-element margins)
+plus a **computed-style** cross-check found the following — and **nothing else**.
+All ~260 shared elements are byte-identical in styling.
+
+**Genuine differences still to deploy (staging = target):** 3 shared containers
+whose Elementor layout vars differ. All render (verified on the live staging DOM):
+
+| Element | Section | Staging (target) | Prod (current) | Action on prod |
+|---|---|---|---|---|
+| `4e70c1a` | "Why we exist" / numbered block | `margin-top: 90px` | `180px` | reduce top margin to **90px** |
+| `b5638ff` | "Who we work with" | `min-height: 144px` | `90px` | set min-height **144px** |
+| `d08a64f` | "HUMAN" | `margin-top: -64px` | `0` (unset) | set top margin **−64px** |
+
+> Direction assumes staging is the design target (per Task 4/5). Confirm before
+> deploying — if any of these was an intentional *prod* change, keep prod's value.
+
+**No action — verified equivalent:**
+- **"Premium platform partners" section is rebuilt** on prod (every element is a new
+  instance — different hashes, hence it shows as "structural" in the tool), but it
+  **renders identically**: same heading + sub-heading and the same 6 partner logos at
+  identical sizes (100×26, 140×41, 93×35, 131×75, 177×61, 124×55), no borders on either
+  side. No visible difference; nothing to deploy.
+- **The hero framed buttons** ("Build smarter with AI" / "Run campaigns better") have
+  the 2px gold bottom border on **both** sites now — prod's generated CSS regenerated
+  during the session. `css-diff.py` reports **REAL=0** (no concrete style diffs).
+- `73d1ae0` `--border-radius:0 0 0 0` vs unset, and `f893361` `--min-height:0` vs unset
+  — both render the same; ignore.
+
+> ℹ️ **Lazy-load caveat (staging):** the 6 partner logos are size-less SVGs that
+> collapse to 0×0 until loaded; a 0×0 element can fail to trigger its own lazy-load.
+> They load fine when scrolled into view, but if a real user ever sees a blank logo
+> row on staging, give those images an explicit width or `loading="eager"`. Not a
+> prod issue.
 
 ---
 
