@@ -36,6 +36,10 @@ STAGING=https://staging.moonbow.co PROD=https://moonbow.co python3 css-diff.py /
   **rebuilt** (same content, new element instances) or a widget was added/removed.
   `css-diff.py` can't compare rebuilt sections by hash — use `pdSection()` to compare
   them by DOM order / rendered size instead.
+  - **Expected STRUCTURAL noise:** on *every* page the same hashes appear (prod docs
+    `9530/9535/9539`, staging `9780/9784/9788`) — these are the hidden **ElementsKit
+    mega-menu panels** (Services/AI suite/Our work), which differ per environment but are
+    non-visual for a page-body audit. Ignore them; they are not a page diff.
 
 ## Why it aligns across two different documents
 Staging and prod home are *different* Elementor documents (post 9628 vs 9172), but a

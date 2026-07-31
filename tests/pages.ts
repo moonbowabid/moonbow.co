@@ -100,6 +100,31 @@ export const HOME_ELEMENT_PARITY = [
   { hash: 'd08a64f', props: MARGINS, label: '"HUMAN" margins (target top -64px only)' },
 ];
 
+/**
+ * Interior-page (Careers, Contact us) container settings the deep pixel audit
+ * (2026-07-31) flagged from the generated Elementor CSS. Live verification showed
+ * production ALREADY matches staging on every one — the audit's larger numbers were
+ * stale generated-CSS files, not what renders (see STAGING-VS-PROD-CHANGES.md).
+ * These assertions lock that in: compared as live COMPUTED styles, prod must keep
+ * matching staging. Desktop only. Found via `tools/pixel-diff/css-diff.py`.
+ */
+export interface ElementParity {
+  path: string;
+  hash: string;
+  props: string[];
+  label: string;
+}
+export const INTERIOR_ELEMENT_PARITY: ElementParity[] = [
+  { path: '/careers/',    hash: '389e576', props: ['paddingTop', 'paddingBottom'], label: 'Careers "We are hiring" padding' },
+  { path: '/careers/',    hash: '015c665', props: ['paddingTop', 'paddingBottom'], label: 'Careers "Frequently asked" padding' },
+  { path: '/contact-us/', hash: '2fd7c3f', props: ['minHeight'],                   label: 'Contact us map min-height (294px)' },
+  { path: '/contact-us/', hash: '7b8052e', props: ['paddingBottom'],               label: 'Contact us hero outer padding-bottom' },
+  // marginTop included deliberately: a −76px top margin on staging (removed 2026-07-31
+  // to standardise on 0 / no negative values) was the real "extra space above the
+  // heading" cause — checking only L/R/B once let it slip through.
+  { path: '/contact-us/', hash: '2fbbf5f', props: ['marginTop', 'marginLeft', 'marginRight', 'marginBottom'], label: 'Contact us hero inner margins' },
+];
+
 /** Computed values of several style props of an Elementor element by hash. */
 export async function computedProps(
   page: Page,

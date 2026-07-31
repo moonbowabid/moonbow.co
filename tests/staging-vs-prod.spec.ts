@@ -5,6 +5,7 @@ import {
   EXPECTED_NAV,
   HOME_BLOCKS,
   HOME_ELEMENT_PARITY,
+  INTERIOR_ELEMENT_PARITY,
   navLabels,
   heroTop,
   sectionHeight,
@@ -237,6 +238,40 @@ test.describe('Home element parity  (deep pixel audit)', () => {
       await basePage.close();
 
       expect(baseV, `element ${el.hash} found on staging`).not.toBeNull();
+      const num = (s: string) => parseFloat(s) || 0;
+      for (const p of el.props) {
+        expect(
+          Math.abs(num(targetV![p]) - num(baseV![p])),
+          `${el.label} · ${p}: target=${targetV![p]} vs staging=${baseV![p]} (should match)`,
+        ).toBeLessThanOrEqual(1);
+      }
+    });
+  }
+});
+
+/**
+ * Interior element-level parity (Careers, Contact us) — the deep-audit container
+ * settings. Live verification (2026-07-31) found production already matches staging
+ * on all of these; the css-diff numbers were stale generated CSS. This guards
+ * against a future divergence. Desktop only.
+ */
+test.describe('Interior element parity  (deep pixel audit)', () => {
+  for (const el of INTERIOR_ELEMENT_PARITY) {
+    test(`${el.label} matches staging`, async ({ page }, testInfo) => {
+      test.skip(testInfo.project.name !== 'desktop', 'measured at desktop only');
+
+      await page.goto(TARGET + el.path, { waitUntil: 'commit' });
+      await settle(page);
+      const targetV = await computedProps(page, el.hash, el.props);
+      expect(targetV, `element ${el.hash} found on target (${el.path})`).not.toBeNull();
+
+      const basePage = await page.context().newPage(); // inherits desktop emulation
+      await basePage.goto(BASELINE + el.path, { waitUntil: 'commit' });
+      await settle(basePage);
+      const baseV = await computedProps(basePage, el.hash, el.props);
+      await basePage.close();
+
+      expect(baseV, `element ${el.hash} found on staging (${el.path})`).not.toBeNull();
       const num = (s: string) => parseFloat(s) || 0;
       for (const p of el.props) {
         expect(

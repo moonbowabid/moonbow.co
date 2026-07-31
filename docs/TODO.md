@@ -5,7 +5,8 @@
 > happens when we start it.
 
 **Related docs (in the repo):**
-- `html/docs/STAGING-VS-PROD-CHANGES.md` — page-wise staging→prod change list + Elementor/CSS how-to (Tasks 4–5).
+- `html/docs/STAGING-VS-PROD-CHANGES.md` — staging→prod change status record (Tasks 4–5, 7).
+- `html/docs/PENDING-CHANGES-BY-PAGE.md` — page-wise task ledger + the one open item (LOCAL home sync).
 - `html/tests/` — committed Playwright suite that verifies prod against staging.
 - `DEPLOY-mega-menu.md` (project root) — earlier manual deploy notes (reference only).
 
@@ -40,12 +41,12 @@ Full page-wise comparison in `STAGING-VS-PROD-CHANGES.md`; verified visually in-
 - **No global restyle** — Elementor kit `post-11.css` (fonts, colours, weights, container widths 1440/1024/767, spacing) and footer `post-17.css` are **identical** on both. Theme CSS/JS byte-identical (both 1.1.8). About us page identical.
 - The earlier HTTP-only pass wrongly reported "staging mega-menu vs prod flat 7-item menu" — an HTML-parse artifact. **Both sites have the identical ElementsKit mega-menu** (verified by hovering the dropdowns). There is no menu migration to do.
 
-**Env-only (never deploy):** staging cache-busts assets with a global timestamp vs prod version headers; staging `noindex` vs prod `index`. Prod home also embeds an extra template `9530` (old-homepage section) — not a staging change.
+**Env-only (never deploy):** staging cache-busts assets with a global timestamp vs prod version headers; staging `noindex` vs prod `index`. The extra template docs loaded on every page (prod `9530/9535/9539`, staging `9780/9784/9788`) are the hidden **ElementsKit mega-menu panels** (Services/AI suite/Our work) — non-visual, not a staging change.
 
 **Cross-finding → Task 6:** the `CPT-Jobs` plugin runs on both live sites but is **missing locally** (so it was absent from the Task 1 push too).
 
-## 5. 🔄 Deploy the listed changes to production — NEARLY DONE (desktop all green; mobile pending)
-Verified via `html/tests` (desktop 1440px, against the staging baseline):
+## 5. ✅ Deploy the listed changes to production — DONE & VERIFIED (desktop + mobile green)
+Verified via `html/tests` (desktop 1440px + mobile 390px, against the staging baseline):
 - ✅ **Hero spacing (margins) — DONE & VERIFIED (2026-07-22):** Services, AI Suite, Our Work, Careers, Contact us all match staging; About us needed no change. `layout matches staging` green on every page — **desktop (1440px) and mobile (390px, iPhone 13)**. Full mobile suite also green (scroll-to-top, button domains, console/asset checks, off-canvas menu).
 - ✅ **Scroll-to-Top button (G2) — DONE & VERIFIED (2026-07-22):** now present on all 7 prod pages (`scroll-to-top button present` test green). Enabled via UAE → Widgets + Elementor Site Settings, per §G2.
 - ✅ **Homepage block spacing — DONE & VERIFIED (2026-07-22):**
@@ -66,7 +67,18 @@ Compared staging's plugin list (WP admin) against the local filesystem and git.
 - ℹ️ **Local-only (expected):** `copy-delete-posts` and `wordpress-mcp` are dev/utility plugins, correctly absent from staging.
 - ✅ **`setup-local.sh` already handles the temp domain:** `PRODUCTION_URL="https://1nn.562.myftpupload.com"` and the search-replace step (incl. the `http://` variant) rewrites it to the local URL on import. The earlier manual `wp search-replace … → moonbow.local` (2,193 replacements) was a one-off; future imports are covered automatically.
 
-## 7. ⏳ Deep pixel audit — remaining 6 pages — NOT STARTED (pick up 2026-07-23)
+## 7. ✅ Deep pixel audit — remaining 6 pages — DONE (2026-07-31)
+Ran `css-diff.py` on all 6 interior pages. **No prod deploys needed** — the pages already
+match staging. One real fix surfaced: **Contact us** had extra space above "Let's work as
+a team!" (inner hero container carried a −76px top margin on staging); resolved on staging
+by standardising it to **0** (no negative CSS), so both now match. Added an
+`Interior element parity` guard (desktop, green). The cross-page STRUCTURAL hashes are the
+hidden **ElementsKit mega-menu panels** (Services/AI suite/Our work) — non-visual.
+Logged in `STAGING-VS-PROD-CHANGES.md` + `PENDING-CHANGES-BY-PAGE.md`.
+**Only remaining work: LOCAL home sync (the deferred "single important" item).**
+
+<details><summary>Original plan (reference)</summary>
+
 Home is **done**: fully audited with `tools/pixel-diff/`, 3 container diffs deployed to
 prod (`4e70c1a` margin-top 90px, `b5638ff` min-height 144px, `d08a64f` margin top −64px
 only), verified green by Playwright `deep pixel audit` + cache-busted `css-diff.py`
@@ -89,6 +101,8 @@ For each page:
 `moonbow.co`** (www 301s to apex); always cache-bust; watch the lazy-load 0×0 image trap;
 after any prod edit, cache propagation can take a minute (Playwright may read stale edge
 while `css-diff.py` reads fresh — re-run after flush).
+
+</details>
 
 ---
 
