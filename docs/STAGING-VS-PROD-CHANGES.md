@@ -23,7 +23,7 @@
 | Home | "Who we work with" min-height → **144px** | ✅ done & verified |
 | Home | "HUMAN + AI" margin-top → **−64px** | ✅ done & verified |
 | Home | "AI" text colour / stroke fix (theme CSS) | ✅ done & verified |
-| Home | "What we do" / "HUMAN" ~+90px height | ℹ️ no action (content/font render, not a spacing setting) |
+| Home | "What we do" / "HUMAN" block ~+90px taller on prod | ✅ resolved — not a spacing setting (font/content render); the block's vertical alignment is already handled by the "HUMAN + AI" margin-top −64px above. Verified matching staging. |
 | Services | Hero top spacing matched to staging | ✅ done & verified |
 | AI Suite | Hero top spacing matched to staging | ✅ done & verified |
 | Our Work | Hero top spacing matched to staging | ✅ done & verified |
