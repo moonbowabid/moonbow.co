@@ -5,7 +5,10 @@
 > mobile (390px) `html/tests` Playwright suites green.
 >
 > Companion ledger with the per-element values: `PENDING-CHANGES-BY-PAGE.md`.
-> The only remaining item is the **LOCAL home sync** (tracked in that ledger).
+> The **LOCAL sync is now done** (2026-07-31) — `moonbow.local` home (post 9172) + footer
+> (post 17) match **prod-live CSS** with zero real diffs, incl. partner-logo margins, the
+> 5 real-company logo top-paddings, logo-row flex alignment, and the footer LinkedIn −9px.
+> ⚠️ Verify local against prod's **live** CSS, not the dump — the dump lagged these edits.
 
 ---
 

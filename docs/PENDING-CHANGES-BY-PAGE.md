@@ -3,36 +3,64 @@
 > Task ledger for the staging → production design-parity work. Staging is the design
 > target. Companion to `STAGING-VS-PROD-CHANGES.md` and `TODO.md`.
 > Last verified 2026-07-31 — full **desktop** Playwright suite green; mobile suite
-> previously green. **All staging→prod parity items are done & verified**; the only
-> remaining open item is the **LOCAL sync** (out of scope for the staging→prod pass).
+> previously green. **All staging→prod parity items are done & verified**, and the
+> **LOCAL home sync is now done** too (see below). No open items remain.
 
 **Legend:** `PROD` = production · `LOCAL` = `moonbow.local`. ✅ done · ⏳ open.
 
 ---
 
-## Open tasks
+## Completed
 
-### LOCAL — sync the 5 homepage edits to `moonbow.local` ⏳
-The homepage Elementor edits were made on prod's **database**, not in git, so
-`moonbow.local` still renders the old pre-change values (measured 2026-07-31):
+### LOCAL — home (post 9172) + footer (post 17) synced to prod ✅ (2026-07-31)
+**Oracle correction (important):** the sync must be verified against **prod's LIVE
+generated CSS**, *not* the dump. The fresh dump `prod_db_31-07/db_dom880016.sql` (exported
+~16:46) was taken **before** a batch of small Elementor edits was saved on prod, so a
+`_elementor_data` diff vs the dump wrongly reads "byte-identical / done". Comparing local's
+regenerated `post-9172.css` / `post-17.css` against prod's live cache-busted CSS
+(`css-diff` rule-by-rule, order-insensitive) is the correct check.
 
-| Section | Setting | Target | Local now |
+The 5 main homepage container edits (below) were already on local and match prod:
+
+| Section | Element | Setting | Value |
 | --- | --- | --- | --- |
-| "Why we exist" | min-height | 577px | 877 |
-| "Premium platform partners" | min-height | 550px | unset |
-| "01 Plan for retail growth" | margin-top | 90px | 180 |
-| "Who we work with" | min-height | 144px | 90 |
-| "HUMAN + AI" | margin-top | −64px | 0 |
+| "Why we exist" | `5c33c08` | min-height | 577px ✅ |
+| "Premium platform partners" | `692ad68` | min-height | 550px ✅ |
+| "01 Plan for retail growth" | `4e70c1a` | margin-top | 90px ✅ |
+| "Who we work with" | `b5638ff` | min-height | 144px ✅ |
+| "HUMAN + AI" | `d08a64f` | margin-top | −64px ✅ |
 
-**How:** either re-import the prod DB via `setup-local.sh` (cleanest — pulls all edits at
-once), or re-apply the values in Elementor on local, then regenerate + flush local cache.
-(The `.Ai-text` colour fix is already on local — it ships in git.) _Note:_ local now also
-lags the two partner-logos margins below (verified 2026-07-31: subheading margin-top 0px on
-local vs 44px on prod), so a fresh prod→local DB import is the cleanest catch-up.
+**Post-dump prod edits that WERE missing on local** (present in prod-live CSS, absent from
+the dump → applied to local `_elementor_data` and regenerated):
+
+| Post | Element | Setting | Applied |
+| --- | --- | --- | --- |
+| 9172 | Subheading "Any platform…" `b99a11b` | margin-top | 0 → **44px** (bottom kept 20px) |
+| 9172 | Premium-partner logo-row `820eb01` | margin-top | unset → **20px** |
+| 9172 | Swarovski logo `a555845` | padding-top | unset → **30px** |
+| 9172 | AkzoNobel logo `0936422` | padding-top | unset → **30px** |
+| 9172 | Euronics logo `ff698b3` | padding-top | unset → **26px** |
+| 9172 | LEGO logo `e6958b0` | padding-top | unset → **20px** |
+| 9172 | Smyths logo `9dfda87` | padding-top | unset → **20px** |
+| 9172 | "Who we work with" logo row `0daee97` | align-items | center → **stretch** |
+| 9172 | Logo-row wrapper `9e52f53` | justify-content | unset → **center** |
+| 17 | Footer LinkedIn icon `3890cb0` | margin-top | unset → **−9px** |
+
+(Lacoste `293ed26` = 0 top padding on both, no change.) These were **already live on
+production** — nothing to deploy there; the gap was local-only (prod's DB was ahead of both
+the dump and local). The footer template (post 17) was byte-identical staging↔prod already;
+local's copy was an older import missing the −9px.
+
+**How:** patched each `_elementor_data` via `wp eval-file`
+(`update_post_meta($pid, …, wp_slash($json))`), then `wp elementor flush-css` +
+`wp cache flush`, then rendered the home page to regenerate CSS. **Verified:** local's
+regenerated `post-9172.css` and `post-17.css` now match prod-live with **zero real diffs**
+(only residual: the `moonbow.local` vs `moonbow.co` domain in a background-image URL, and a
+no-op Elementor `--order:99999` generator var). (The `.Ai-text` colour fix ships in git.)
 
 ---
 
-## Completed
+## Completed (staging → prod)
 
 ### Global
 | Task | Status |

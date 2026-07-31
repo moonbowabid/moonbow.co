@@ -6,7 +6,7 @@
 
 **Related docs (in the repo):**
 - `html/docs/STAGING-VS-PROD-CHANGES.md` — staging→prod change status record (Tasks 4–5, 7).
-- `html/docs/PENDING-CHANGES-BY-PAGE.md` — page-wise task ledger + the one open item (LOCAL home sync).
+- `html/docs/PENDING-CHANGES-BY-PAGE.md` — page-wise task ledger (all items complete, incl. LOCAL home sync).
 - `html/tests/` — committed Playwright suite that verifies prod against staging.
 - `DEPLOY-mega-menu.md` (project root) — earlier manual deploy notes (reference only).
 
@@ -75,7 +75,17 @@ by standardising it to **0** (no negative CSS), so both now match. Added an
 `Interior element parity` guard (desktop, green). The cross-page STRUCTURAL hashes are the
 hidden **ElementsKit mega-menu panels** (Services/AI suite/Our work) — non-visual.
 Logged in `STAGING-VS-PROD-CHANGES.md` + `PENDING-CHANGES-BY-PAGE.md`.
-**Only remaining work: LOCAL home sync (the deferred "single important" item).**
+
+**LOCAL sync — DONE (2026-07-31).** `moonbow.local` home (post 9172) + footer (post 17) now
+match **prod-live CSS** with zero real diffs. ⚠️ Lesson: verify local against prod's **live**
+generated CSS, not the dump — the fresh dump (`prod_db_31-07`) was exported *before* a batch
+of small prod Elementor edits, so a dump-vs-local `_elementor_data` diff falsely read
+"byte-identical". Post-dump edits synced onto local: partner-logo margins (`b99a11b` mt 44,
+`820eb01` mt 20), 5 real-company logo top-paddings (Swarovski/AkzoNobel 30, Euronics 26,
+LEGO/Smyths 20), logo-row `0daee97` align-items→stretch + wrapper `9e52f53` justify→center,
+and footer LinkedIn `3890cb0` margin-top −9px. All were already live on prod (nothing to
+deploy there). Applied via `wp eval-file` + Elementor CSS regenerate. See
+`PENDING-CHANGES-BY-PAGE.md` for the full element table.
 
 <details><summary>Original plan (reference)</summary>
 
