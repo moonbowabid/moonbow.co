@@ -17,7 +17,7 @@ add_action( 'wp_enqueue_scripts', function () {
             'services-css',
             SERVICE_PLUGIN_URL . 'assets/css/services.css',
             [],
-            '1.0'
+            '1.1'
         );
 
         wp_enqueue_style(

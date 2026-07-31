@@ -15,11 +15,13 @@
  }
 
  .services-title .services-title__heading {
-     font-size: 66px;
+     /*font-size: 66px;*/
+     /*IM*/font-size: 45px;
      color: var(--primary-color);
      line-height: 114.99999999999999%;
-     margin-top: 152px;
-     margin-bottom: 60px;
+     /*margin-top: 152px;*/
+     /*IM*/margin-top: 40px;
+     margin-bottom: 50px;
  }
 
  .services-title__video-banner,
