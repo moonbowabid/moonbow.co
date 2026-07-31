@@ -11,27 +11,27 @@
 
 ## Status — all production changes done
 
-| Scope | Change | Status |
-| --- | --- | --- |
-| Global | Scroll-to-Top button enabled site-wide (G2) | ✅ done & verified |
-| Global | Elementor webfonts served from `moonbow.co` — temp-domain/CORS cleared (G3) | ✅ done & verified |
-| Global | Nav label casing — prod lowercase (`AI suite`, `Our work`) is correct | ✅ no change |
-| Global | Header mega menu — identical ElementsKit mega-menu on both | ✅ no change |
-| Home | "Why we exist" min-height → **577px** | ✅ done & verified |
-| Home | "Premium platform partners" min-height → **550px** | ✅ done & verified |
-| Home | "01 Plan for retail growth" margin-top → **90px** | ✅ done & verified |
-| Home | "Who we work with" min-height → **144px** | ✅ done & verified |
-| Home | "HUMAN + AI" margin-top → **−64px** | ✅ done & verified |
-| Home | "AI" text colour / stroke fix (theme CSS) | ✅ done & verified |
-| Home | "What we do" / "HUMAN" block ~+90px taller on prod | ✅ resolved — not a spacing setting (font/content render); the block's vertical alignment is already handled by the "HUMAN + AI" margin-top −64px above. Verified matching staging. |
-| Services | Hero top spacing matched to staging | ✅ done & verified |
-| AI Suite | Hero top spacing matched to staging | ✅ done & verified |
-| Our Work | Hero top spacing matched to staging | ✅ done & verified |
-| Careers | Hero top spacing matched to staging | ✅ done & verified |
-| Contact us | Hero top spacing matched to staging | ✅ done & verified |
-| Contact us | Extra space above "Let's work as a team!" — inner hero margin-top → **0** (no negative CSS) | ✅ done & verified |
-| About us | Compared identical to staging | ✅ no change |
-| Interior 6 pages | Deep pixel audit (Task 7) — no further page-body diffs | ✅ done |
+| Scope            | Change                                                                                             | Status                                                                                                                                                                                |
+| ---------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Global           | Scroll-to-Top button enabled site-wide (G2)                                                        | ✅ done & verified                                                                                                                                                                    |
+| Global           | Elementor webfonts served from`moonbow.co` — temp-domain/CORS cleared (G3)                      | ✅ done & verified                                                                                                                                                                    |
+| Global           | Nav label casing — prod lowercase (`AI suite`, `Our work`) is correct                         | ✅ no change                                                                                                                                                                          |
+| Global           | Header mega menu — identical ElementsKit mega-menu on both                                        | ✅ no change                                                                                                                                                                          |
+| Home             | "Why we exist" min-height →**577px**                                                        | ✅ done & verified                                                                                                                                                                    |
+| Home             | "Premium platform partners" min-height →**550px**                                           | ✅ done & verified                                                                                                                                                                    |
+| Home             | "01 Plan for retail growth" margin-top →**90px**                                            | ✅ done & verified                                                                                                                                                                    |
+| Home             | "Who we work with" min-height →**144px**                                                    | ✅ done & verified                                                                                                                                                                    |
+| Home             | "HUMAN + AI" margin-top →**−64px**                                                         | ✅ done & verified                                                                                                                                                                    |
+| Home             | "AI" text colour / stroke fix (theme CSS)                                                          | ✅ done & verified                                                                                                                                                                    |
+| Home             | "What we do" / "HUMAN" block ~+90px taller on prod                                                 | ✅ resolved — not a spacing setting (font/content render); the block's vertical alignment is already handled by the "HUMAN + AI" margin-top −64px above. Verified matching staging. |
+| Services         | Hero top spacing matched to staging                                                                | ✅ done & verified                                                                                                                                                                    |
+| AI Suite         | Hero top spacing matched to staging                                                                | ✅ done & verified                                                                                                                                                                    |
+| Our Work         | Hero top spacing matched to staging                                                                | ✅ done & verified                                                                                                                                                                    |
+| Careers          | Hero top spacing matched to staging                                                                | ✅ done & verified                                                                                                                                                                    |
+| Contact us       | Hero top spacing matched to staging                                                                | ✅ done & verified                                                                                                                                                                    |
+| Contact us       | Extra space above "Let's work as a team!" — inner hero margin-top →**0** (no negative CSS) | ✅ done & verified                                                                                                                                                                    |
+| About us         | Compared identical to staging                                                                      | ✅ no change                                                                                                                                                                          |
+| Interior 6 pages | Deep pixel audit (Task 7) — no further page-body diffs                                            | ✅ done                                                                                                                                                                               |
 
 ---
 
