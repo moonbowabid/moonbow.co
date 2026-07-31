@@ -25,7 +25,7 @@ add_action( 'wp_enqueue_scripts', function () {
             'case-studies-css',
             CS_PLUGIN_URL . 'assets/css/case-studies.css',
             [],
-            '1.0'
+            '1.1'
         );
 
         wp_enqueue_style(
