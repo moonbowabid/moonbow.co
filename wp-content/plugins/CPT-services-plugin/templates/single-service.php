@@ -62,14 +62,13 @@ while ( have_posts() ) : the_post();
     </h1>
 
     <?php if ( $video ) : ?>
-        <div class="services-title__video-banner">
+       <div class="services-title__video-banner">
 
             <video
                 class="services-title__video"
                 autoplay
-                muted
-                loop
                 playsinline
+                controls
                 poster="<?php echo esc_url( is_array($banner_video_poster) ? $banner_video_poster['url'] : $banner_video_poster ); ?>"
             > 
                 <source src="<?php echo esc_url( is_array($video) ? $video['url'] : $video ); ?>" type="video/mp4">
