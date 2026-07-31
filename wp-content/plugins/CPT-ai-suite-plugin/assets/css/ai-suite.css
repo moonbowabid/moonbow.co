@@ -15,10 +15,12 @@
  }
 
  .ai-suite-title .ai-suite-title__heading {
-     font-size: 66px;
+     /*font-size: 66px;*/
+     /*IM*/ font-size: 45px;
      color: var(--primary-color);
      line-height: 114.99999999999999%;
-     margin-top: 152px;
+     /*margin-top: 152px;*/
+     /*IM*/ margin-top: 40px;
      margin-bottom: 0px;
  }
 
@@ -67,7 +69,8 @@
  }
 
  .ai-suite-overview-shoppers-search-today {
-     margin-top: 150px;
+     /*margin-top: 150px;*/
+     /*IM*/margin-top: 60px;
  }
 
  center,

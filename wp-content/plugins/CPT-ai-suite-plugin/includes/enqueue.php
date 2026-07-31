@@ -17,7 +17,7 @@ add_action( 'wp_enqueue_scripts', function () {
             'ai-suite-css',
             AI_SUITE_PLUGIN_URL . 'assets/css/ai-suite.css',
             [],
-            '1.0'
+            '1.1'
         );
 
         wp_enqueue_style(
