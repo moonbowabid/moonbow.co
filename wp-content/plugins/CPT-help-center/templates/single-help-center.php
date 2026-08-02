@@ -53,7 +53,8 @@ $current_term = ! empty( $terms ) ? $terms[0] : null;
     </div>
   
      <!-- <a class="help-single__back" href="<?php echo esc_url( site_url( '/help-centre/' ) ); ?>"> -->
-             <div class="help-center-search-container">
+            
+            <!-- IM Closed it for Help Search Case No.CI-050<div class="help-center-search-container">
            <form
                 action="<?php echo esc_url( site_url('/help-centre/') ); ?>"
                 method="get"
@@ -75,7 +76,7 @@ $current_term = ! empty( $terms ) ? $terms[0] : null;
                         Press Enter to search
                     </div>
                 </form> 
-    </div>
+    </div>-->
 
 
     <div class="help-single-main-container">

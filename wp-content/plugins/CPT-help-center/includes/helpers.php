@@ -24,7 +24,7 @@ function hc_get_help_categories() {
 function hc_get_help_posts_by_category( $term_id ) {
 
     return new WP_Query([
-        'post_type'      => 'help',
+        'post_type'      => 'help-center',
         'posts_per_page' => -1,
         'tax_query'      => [[
             'taxonomy' => 'help_category',
