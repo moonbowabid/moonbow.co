@@ -4,7 +4,7 @@ Description: Theme of Moobow
 Author: Ewall
 Author URI: -
 Author Email: -
-Version: 1.1.9
+Version: 1.2.0
 Text Domain: hello-elementor-child
 Template: hello-elementor
 */
@@ -1862,9 +1862,6 @@ table.cookie-table tbody tr td {
 
 
 @media (max-width:1024px) {
-    .Ai-text {
-        -webkit-text-stroke: 4px var(--primary-color) !important;
-    }
 
     .header-navigation-menu nav ul .menu-item a.hfe-menu-item {
         padding: 10px !important;
