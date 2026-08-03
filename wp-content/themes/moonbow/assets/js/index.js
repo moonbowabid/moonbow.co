@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       return match ? match.split("=")[1] : null;
     }
-    advertisementSection.style.display = "none";
+    // advertisementSection.style.display = "none";
 
     if (getCookieValue(COOKIE_NAME) !== "yes") {
       advertisementSection.style.display = "block";
