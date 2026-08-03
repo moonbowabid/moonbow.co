@@ -1,10 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Header top find_out container close function (cookie based)
   (function () {
-    // run ONLY on home page
-    console.log("Checking if on home page for top advertisement script...");
-    if (!document.body.classList.contains("home")) return;
-    console.log("Home page - running top advertisement script");
+    // run on all pages (banner lives in the global header)
+    console.log("Running top advertisement script");
 
     const advertisementSection = document.querySelector(
       ".top_advertisement_section",

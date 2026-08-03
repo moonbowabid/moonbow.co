@@ -144,11 +144,11 @@
     font-weight: 500 !important;
 }
 
-/* Top ad banner: make the "Find out now" link green */
+/* Top ad banner: make the "Find out now" link yellow */
 .elementor-element-de78b1b .elementor-heading-title,
 .elementor-element-de78b1b .elementor-heading-title a,
 .elementor-element-de78b1b .elementor-heading-title a:hover {
-    color: #22C55E !important;
+    color: #FBD600 !important;
 }
 
 /* ===================================================================
